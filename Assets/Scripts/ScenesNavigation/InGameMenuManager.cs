@@ -8,7 +8,7 @@ namespace Tanchiki.Navigation
         private const int MAINMENU_BUILD_INDEX = 0;
         public void ReturnToMainMenu()
         {
-            SceneManager.LoadScene(MAINMENU_BUILD_INDEX);
+            LoadingScreen.Instance.Loading(MAINMENU_BUILD_INDEX);
         }
     }
 }

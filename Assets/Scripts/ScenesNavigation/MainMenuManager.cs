@@ -7,8 +7,8 @@ namespace Tanchiki.Navigation
     public class MainMenuManager : MonoBehaviour
     {
         private const int TEMPLATELEVEL_BUILD_INDEX = 1;
-        public void StartGame(int level) {
-            SceneManager.LoadScene(level);
+        public void StartGame(int levelBuildIndex) {
+            LoadingScreen.Instance.Loading(levelBuildIndex);
         }
         public void StartTemplateLevel()
         {
