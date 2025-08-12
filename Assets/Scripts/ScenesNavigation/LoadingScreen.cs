@@ -39,10 +39,10 @@ namespace Tanchiki.Navigation
             {
                 scaleImage.fillAmount = loadAsync.progress;
 
-                if (loadAsync.progress >= .99f && !loadAsync.allowSceneActivation)
+                if (loadAsync.progress >= .9f && !loadAsync.allowSceneActivation)
                 {
                     loadAsync.allowSceneActivation = true;
-                    yield return new WaitForSeconds(0.1f);
+                    yield return new WaitForSeconds(0.5f);
                     screen.SetActive(false);
                 }
                 yield return null;

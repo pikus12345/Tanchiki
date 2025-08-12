@@ -9,6 +9,7 @@ namespace Tanchiki.Navigation
         private const int TEMPLATELEVEL_BUILD_INDEX = 1;
         public void StartGame(int levelBuildIndex) {
             LoadingScreen.Instance.Loading(levelBuildIndex);
+            //SceneManager.LoadScene(levelBuildIndex);
         }
         public void StartTemplateLevel()
         {

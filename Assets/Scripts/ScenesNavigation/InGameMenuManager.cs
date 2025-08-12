@@ -9,6 +9,7 @@ namespace Tanchiki.Navigation
         public void ReturnToMainMenu()
         {
             LoadingScreen.Instance.Loading(MAINMENU_BUILD_INDEX);
+            //SceneManager.LoadScene(MAINMENU_BUILD_INDEX);
         }
     }
 }
