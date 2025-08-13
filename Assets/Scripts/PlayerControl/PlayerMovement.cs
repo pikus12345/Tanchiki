@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Tanchiki.PlayerMovement
+namespace Tanchiki.PlayerControl
 {
     public class PlayerMovement : MonoBehaviour
     {
@@ -13,11 +13,16 @@ namespace Tanchiki.PlayerMovement
 
         [SerializeField] float m_moveSpeed;
         [SerializeField] float m_rotationSpeed;
+        [SerializeField] float m_maxSpeed;
 
         private void Awake()
         {
             m_Rigidbody = GetComponent<Rigidbody2D>();
-
+            if (inputActions == null)
+            {
+                Debug.LogError("InputActions Asset is not assigned!", this);
+                return;
+            }
             m_moveAction = inputActions.FindAction("Move");
         }
         private void Update()
@@ -31,12 +36,14 @@ namespace Tanchiki.PlayerMovement
         }
         private void Moving()
         {
-            
-            // ¬ычисл€ем вектор движени€ (вперед/назад относительно текущего направлени€)
             Vector2 movement = transform.right * m_moveVector.y * Time.fixedDeltaTime * m_moveSpeed;
+            m_Rigidbody.AddForce(movement, ForceMode2D.Force);
 
-            // ѕримен€ем движение к Rigidbody
-            m_Rigidbody.AddForce(movement);
+            // ќграничение скорости
+            if (m_Rigidbody.linearVelocity.magnitude > m_maxSpeed)
+            {
+                m_Rigidbody.linearVelocity = m_Rigidbody.linearVelocity.normalized * m_maxSpeed;
+            }
         }
         private void Rotating()
         {

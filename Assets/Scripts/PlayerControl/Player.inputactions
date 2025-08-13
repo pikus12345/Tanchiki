@@ -25,10 +25,19 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Look",
+                    "name": "AimByMousePosition",
+                    "type": "Value",
+                    "id": "0da6f45d-9070-4a9a-9b71-e35118ebe479",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "AimByStick",
                     "type": "Value",
                     "id": "0f2640d0-369f-4d74-a1d2-778bc0b056e8",
-                    "expectedControlType": "Delta",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -125,12 +134,34 @@
                 },
                 {
                     "name": "",
-                    "id": "58dd444d-fd0a-475d-b225-efeb34226d5a",
+                    "id": "73280a46-2c83-4038-b5af-88ff84e718d0",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AimByMousePosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f0fb0669-43d0-4fa4-afc2-400f6a471c99",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AimByStick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bac53385-6945-469c-8254-d6d8cf16a698",
                     "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Look",
+                    "action": "AimByStick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
