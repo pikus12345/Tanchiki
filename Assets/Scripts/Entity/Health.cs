@@ -15,6 +15,9 @@ namespace Tanchiki.Entity
         public UnityEvent onHeal;       // Событие при лечении
         public UnityEvent onDeath;      // Событие при смерти
 
+        [Header("Prefabs")]
+        public GameObject damageIndicator;
+
         private void Start()
         {
             currentHealth = maxHealth; // Инициализация HP
@@ -25,7 +28,7 @@ namespace Tanchiki.Entity
         {
             currentHealth -= damage;
             currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-
+            ShowDamageIndicator(damage, false);
             onTakeDamage?.Invoke(); // Запуск события
 
             if (currentHealth <= 0)
@@ -39,7 +42,9 @@ namespace Tanchiki.Entity
         {
             currentHealth += amount;
             currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+            ShowDamageIndicator(amount, true);
             onHeal?.Invoke();
+            
         }
 
         // Смерть объекта
@@ -55,6 +60,12 @@ namespace Tanchiki.Entity
             currentHealth = maxHealth;
         }
 
+        private void ShowDamageIndicator(float value, bool isHeal)
+        {
+            DamageIndicator dmgInd = Instantiate(damageIndicator, transform.position, Quaternion.identity, null).GetComponent<DamageIndicator>();
+            dmgInd.value = value;
+            dmgInd.isHeal = isHeal;
+        }
         // Проверка на полное здоровье
         public bool IsFullHealth()
         {
@@ -78,7 +89,7 @@ namespace Tanchiki.Entity
                 }
                 else
                 {
-                    TakeDamage(box.health);
+                    TakeDamage(-box.health);
                 }
                 Destroy(collision.collider.gameObject);
             }

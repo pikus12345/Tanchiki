@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4968685291000812088}
   - component: {fileID: 6032620460469289509}
   m_Layer: 0
-  m_Name: Healbox
+  m_Name: DamageBox
   m_TagString: Healthbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -1049461823314036041, guid: c6a9711b54213a04f989832a45fc8a48, type: 3}
+  m_Sprite: {fileID: -460851053, guid: c6a9711b54213a04f989832a45fc8a48, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -175,4 +175,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5021e0cbea664134eb0080d39eaccded, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
+  health: -25
