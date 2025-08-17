@@ -1,9 +1,10 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Tanchiki.Entity;
 
 namespace Tanchiki.PlayerControl
 {
-    public class TowerRotation : MonoBehaviour
+    public class PlayerTurretRotation : TurretRotation
     {
         [Header("Input")]
         [SerializeField] private InputActionAsset inputActions;

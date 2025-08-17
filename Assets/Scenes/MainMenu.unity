@@ -1790,6 +1790,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 352929277307674675, guid: 9c6ce95192b0fbd4a8a3bd5b5a3544fb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1126970413703115671, guid: 9c6ce95192b0fbd4a8a3bd5b5a3544fb, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1870,9 +1874,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5148553989708866696, guid: 9c6ce95192b0fbd4a8a3bd5b5a3544fb, type: 3}
+      propertyPath: m_Transition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5148553989708866696, guid: 9c6ce95192b0fbd4a8a3bd5b5a3544fb, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5599051427714858774, guid: 9c6ce95192b0fbd4a8a3bd5b5a3544fb, type: 3}
       propertyPath: m_Name
       value: LoadingScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729355797595141286, guid: 9c6ce95192b0fbd4a8a3bd5b5a3544fb, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.684
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729355797595141286, guid: 9c6ce95192b0fbd4a8a3bd5b5a3544fb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

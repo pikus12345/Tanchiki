@@ -1,9 +1,10 @@
+using Tanchiki.Entity;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Tanchiki.PlayerControl
 {
-    public class PlayerMovement : MonoBehaviour
+    public class PlayerMovement : TankControl
     {
         [SerializeField] InputActionAsset inputActions;
 

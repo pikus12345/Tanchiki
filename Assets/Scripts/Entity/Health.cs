@@ -4,11 +4,11 @@ using UnityEngine.UI;
 
 namespace Tanchiki.Entity
 {
-    public class HealthBar : MonoBehaviour
+    public class Health : MonoBehaviour
     {
         [Header("Health Settings")]
-        [SerializeField] private float maxHealth = 100f;
-        [SerializeField] private float currentHealth;
+        [SerializeField] internal float maxHealth;
+        [SerializeField] internal float currentHealth;
 
         [Header("Events")]
         public UnityEvent onTakeDamage; // Событие при получении урона
@@ -17,6 +17,9 @@ namespace Tanchiki.Entity
 
         [Header("Prefabs")]
         public GameObject damageIndicator;
+
+        [Header("DeathSettings")]
+        private Color deathColor = new Color(0.4f, 0.4f, 0.4f);
 
         private void Start()
         {
@@ -51,7 +54,18 @@ namespace Tanchiki.Entity
         private void Die()
         {
             onDeath?.Invoke();
-            Destroy(gameObject); // Или другая логика (например, отключение коллайдера)
+
+            SpriteRenderer[] sprs = transform.GetComponentsInChildren<SpriteRenderer>();
+            foreach (SpriteRenderer sprite in sprs)
+            {
+                sprite.color = deathColor;
+            }
+            GetComponent<TankControl>().enabled = false;
+
+            if (gameObject.CompareTag("Player"))
+            {
+                
+            }
         }
 
         // Сброс HP до максимального

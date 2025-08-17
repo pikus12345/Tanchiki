@@ -9,7 +9,7 @@ namespace Tanchiki.Navigation
     public class LoadingScreen : MonoBehaviour
     {
         public GameObject screen;
-        public Image scaleImage;
+        public Slider scaleSlider;
 
         public static LoadingScreen Instance;
         private void Awake()
@@ -37,12 +37,11 @@ namespace Tanchiki.Navigation
 
             while (!loadAsync.isDone)
             {
-                scaleImage.fillAmount = loadAsync.progress;
-
+                scaleSlider.value = loadAsync.progress;
+                
                 if (loadAsync.progress >= .9f && !loadAsync.allowSceneActivation)
                 {
                     loadAsync.allowSceneActivation = true;
-                    yield return new WaitForSeconds(0.5f);
                     screen.SetActive(false);
                 }
                 yield return null;

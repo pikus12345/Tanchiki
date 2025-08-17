@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using Tanchiki.GameManagers;
 
 namespace Tanchiki.Navigation
 {
@@ -14,8 +15,6 @@ namespace Tanchiki.Navigation
 
         [Header("Audio Settings")]
         [SerializeField] private bool pauseAudio = true;
-
-        private bool isPaused = false;
 
         private void Awake()
         {
@@ -40,28 +39,32 @@ namespace Tanchiki.Navigation
         // Включить/выключить паузу
         public void TogglePause()
         {
-            isPaused = !isPaused;
-
-            // Остановка/возобновление времени
-            Time.timeScale = isPaused ? 0f : 1f;
+            if(!GameManager.Instance.isPaused())
+            {
+                GameManager.Instance.SetGameState(GameManager.GameState.Paused);
+            }
+            else if (GameManager.Instance.isPaused())
+            {
+                GameManager.Instance.SetGameState(GameManager.GameState.Playing);
+            }
 
             // Остановка/возобновление аудио
             if (pauseAudio)
             {
-                AudioListener.pause = isPaused;
+                AudioListener.pause = (GameManager.Instance.isPaused());
             }
 
             // Включение/выключение UI панели
             if (pausePanel != null)
             {
-                pausePanel.SetActive(isPaused);
+                pausePanel.SetActive(GameManager.Instance.isPaused());
             }
         }
 
         // Принудительно установить паузу (например, из другого скрипта)
         public void SetPause(bool pause)
         {
-            if (isPaused != pause)
+            if (GameManager.Instance.isPaused() != pause)
             {
                 TogglePause();
             }
