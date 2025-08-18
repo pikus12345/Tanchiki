@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using Tanchiki.GameManagers;
+using System.Linq.Expressions;
 
 namespace Tanchiki.Navigation
 {
@@ -15,8 +16,21 @@ namespace Tanchiki.Navigation
 
         [Header("Audio Settings")]
         [SerializeField] private bool pauseAudio = true;
-
+        #region Синглтон
+        public static PauseManager Instance;
         private void Awake()
+        {
+            if (Instance == null) 
+            {
+                Instance = this;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
+        #endregion
+        private void Start()
         {
             pauseAction = inputAsset.FindAction("Pause");
         }
@@ -39,7 +53,9 @@ namespace Tanchiki.Navigation
         // Включить/выключить паузу
         public void TogglePause()
         {
-            if(!GameManager.Instance.isPaused())
+            GameManager.Instance.TogglePause();
+
+            /*if(!GameManager.Instance.isPaused())
             {
                 GameManager.Instance.SetGameState(GameManager.GameState.Paused);
             }
@@ -59,15 +75,32 @@ namespace Tanchiki.Navigation
             {
                 pausePanel.SetActive(GameManager.Instance.isPaused());
             }
+            */
         }
-
-        // Принудительно установить паузу (например, из другого скрипта)
-        public void SetPause(bool pause)
+        public void DoPaused()
         {
-            if (GameManager.Instance.isPaused() != pause)
+            pausePanel?.SetActive(true);
+            if (pauseAudio)
             {
-                TogglePause();
+                AudioListener.pause = true;
             }
         }
+        public void DoPlaying()
+        {
+            pausePanel?.SetActive(false);
+            if (pauseAudio)
+            {
+                AudioListener.pause = false;
+            }
+        }
+
+        // Принудительно установить паузу (например, из другого скрипта) LEGACY
+        //public void SetPause(bool pause)
+        //{
+        //    if (GameManager.Instance.isPaused() != pause)
+        //    {
+        //        TogglePause();
+        //    }
+        //}
     }
 }

@@ -1,4 +1,5 @@
 using Tanchiki.Entity;
+using Tanchiki.GameManagers;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -61,6 +62,13 @@ namespace Tanchiki.PlayerControl
         private void OnDisable()
         {
             inputActions.FindActionMap("Player").Disable();
+        }
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.gameObject.CompareTag("Finish")) 
+            {
+                GameManager.Instance.SetVictory();
+            }
         }
     }
 }

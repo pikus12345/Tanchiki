@@ -1,4 +1,6 @@
 using Tanchiki.Entity;
+using Tanchiki.Navigation;
+using Tanchiki.PlayerControl;
 using UnityEngine;
 
 namespace Tanchiki.GameManagers
@@ -7,7 +9,7 @@ namespace Tanchiki.GameManagers
     {
         #region Синглтон
         public static GameManager Instance { get; private set; }
-        private void Awake()
+        private void Start()
         {
             if (Instance == null)
             {
@@ -23,12 +25,14 @@ namespace Tanchiki.GameManagers
         #endregion
         #region Инициализация
         private Health playerHealth;
+        [SerializeField] private EndScreenShower EndScreen;
         private void Initialize()
         {
-            playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
+            InitializeGameStateMachine();
         }
         private void OnEnable()
         {
+            playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
             playerHealth.onDeath?.AddListener(SetGameOver);
         }
         private void OnDisable()
@@ -37,41 +41,99 @@ namespace Tanchiki.GameManagers
         }
         #endregion
         #region Состояния игры
-        public enum GameState { Playing, Paused, GameOver, Victory }
+        #region FSM Реализация
+        public abstract class GameState
+        {
+            public abstract void Enter();
+            public abstract void Update();
+            public abstract void Exit();
+        }
+        public interface IFinalGameState { }
+        public class GameStateMachine
+        {
+            internal GameState currentState;
+            public void ChangeState(GameState newState)
+            {
+                if (currentState is IFinalGameState) return;
+                currentState?.Exit();
+                currentState = newState;
+                currentState?.Enter();
+            }
+            public void Update() => currentState?.Update();
+        }
+        #endregion
+        #region Состояния
+        public class Playing : GameState
+        {
+            public override void Enter() {
+                PauseManager.Instance.DoPlaying();
+                Debug.Log("Playing State Entered"); 
+            }
+            public override void Update() => Debug.Log("Playing State Update");
+            public override void Exit() => Debug.Log("Playing State Exited");
+        }
+        public class Paused : GameState
+        {
+            public override void Enter() 
+            { 
+                PauseManager.Instance.DoPaused();
+                Debug.Log("Paused State Entered"); 
+            }
 
-        internal GameState currentState;
-
+            public override void Update() => Debug.Log("Paused State Update");
+            public override void Exit() => Debug.Log("Paused State Exited");
+        }
+        public class GameOver : GameState, IFinalGameState
+        {
+            public override void Enter() 
+            {
+                Instance.EndScreen.ShowEndScreen(false);
+                Debug.Log("GameOver State Entered");
+            }
+            public override void Update() => Debug.Log("GameOver State Update");
+            public override void Exit() => Debug.Log("GameOver State Exited");
+        }
+        public class Victory : GameState, IFinalGameState
+        {
+            public override void Enter() 
+            {
+                Instance.EndScreen.ShowEndScreen(true);
+                Instance.playerHealth.GetComponent<PlayerMovement>().enabled = false;
+                Debug.Log("Victory State Entered"); 
+            }
+            public override void Update() => Debug.Log("Victory State Update");
+            public override void Exit() => Debug.Log("Victory State Exited");
+        }
+        #endregion
+        #region Управление FSM
+        internal GameStateMachine stateMachine;
+        public void InitializeGameStateMachine()
+        {
+            stateMachine = new GameStateMachine();
+            SetGameState(new Playing());
+        }
         public void SetGameState(GameState newState)
         {
-            currentState = newState;
-
-            switch (newState)
+            stateMachine.ChangeState(newState);
+        }
+        public void TogglePause()
+        {
+            if (stateMachine?.currentState is Playing)
             {
-                case GameState.Playing:
-                    Time.timeScale = 1;
-                    break;
-                case GameState.Paused:
-                    Time.timeScale = 0;
-                    break;
-                case GameState.GameOver:
-                    ShowEndScreen();
-                    break;
-                case GameState.Victory:
-                    ShowEndScreen();
-                    break;
+                stateMachine.ChangeState(new Paused());
+            }
+            else if(stateMachine?.currentState is Paused)
+            {
+                stateMachine.ChangeState(new Playing());
             }
         }
-        public void SetPlaying() => SetGameState(GameState.Playing);
-        public void SetPaused() => SetGameState(GameState.Paused);
-        public void SetGameOver() => SetGameState(GameState.GameOver);
-        public void SetVictory() => SetGameState(GameState.Victory);
-        public bool isPaused() { return currentState == GameState.Paused; }
+        public void SetPlaying() => SetGameState(new Playing());
+        public void SetPaused() => SetGameState(new Paused());
+        public void SetGameOver() => SetGameState(new GameOver());
+        public void SetVictory() => SetGameState(new Victory());
+        #endregion
         #endregion
 
-        [SerializeField] private GameObject EndScreen;
-        private void ShowEndScreen()
-        {
-            EndScreen.SetActive(true);
-        }
+        
     }
 }

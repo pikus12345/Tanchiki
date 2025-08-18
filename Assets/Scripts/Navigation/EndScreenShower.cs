@@ -8,16 +8,17 @@ namespace Tanchiki.Navigation {
     {
         [SerializeField] private TMP_Text title;
         [SerializeField] private Button nextLevelButton;
+        [SerializeField] private GameObject screen;
 
-        private void Start()
+        
+        public void ShowEndScreen(bool isVictory)
         {
-            bool isVictory = GameManager.Instance.currentState == GameManager.GameState.Victory;
+            screen.SetActive(true);
             if (isVictory) 
             {
                 title.text = "Victory!";
                 nextLevelButton.gameObject.SetActive(true);
             }
-
         }
     }
 }
