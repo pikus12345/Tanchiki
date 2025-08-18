@@ -20,6 +20,8 @@ namespace Tanchiki.Entity
 
         [Header("DeathSettings")]
         private Color deathColor = new Color(0.4f, 0.4f, 0.4f);
+        [SerializeField] GameObject liveObjects;
+        [SerializeField] GameObject deathObjects;
 
         private void Start()
         {
@@ -47,7 +49,6 @@ namespace Tanchiki.Entity
             currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
             ShowDamageIndicator(amount, true);
             onHeal?.Invoke();
-            
         }
 
         // Смерть объекта
@@ -55,6 +56,8 @@ namespace Tanchiki.Entity
         {
             onDeath?.Invoke();
 
+            liveObjects.SetActive(false);
+            deathObjects.SetActive(true);
             SpriteRenderer[] sprs = transform.GetComponentsInChildren<SpriteRenderer>();
             foreach (SpriteRenderer sprite in sprs)
             {

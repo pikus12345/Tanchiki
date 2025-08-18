@@ -16,6 +16,9 @@ namespace Tanchiki.PlayerControl
         [SerializeField] float m_moveSpeed;
         [SerializeField] float m_rotationSpeed;
         [SerializeField] float m_maxSpeed;
+        [SerializeField] float m_speedDrag;
+
+        float m_currentSpeed;
 
         private void Awake()
         {
@@ -38,14 +41,22 @@ namespace Tanchiki.PlayerControl
         }
         private void Moving()
         {
-            Vector2 movement = transform.right * m_moveVector.y * Time.fixedDeltaTime * m_moveSpeed;
-            m_Rigidbody.AddForce(movement, ForceMode2D.Force);
+            Vector2 movement = transform.right * Time.fixedDeltaTime * m_moveSpeed;
+            m_currentSpeed += m_moveVector.y;
+            m_currentSpeed = Mathf.MoveTowards(m_currentSpeed, 0, Time.fixedDeltaTime * m_speedDrag);
+            m_currentSpeed = Mathf.Clamp(m_currentSpeed, -m_maxSpeed, m_maxSpeed);
+            m_Rigidbody.MovePosition(m_Rigidbody.position + movement * m_currentSpeed);
 
             // Ограничение скорости
-            if (m_Rigidbody.linearVelocity.magnitude > m_maxSpeed)
-            {
-                m_Rigidbody.linearVelocity = m_Rigidbody.linearVelocity.normalized * m_maxSpeed;
-            }
+            
+
+
+
+
+            //if (m_Rigidbody.linearVelocity.magnitude > m_maxSpeed)
+            //{
+            //    m_Rigidbody.linearVelocity = m_Rigidbody.linearVelocity.normalized * m_maxSpeed;
+            //}
         }
         private void Rotating()
         {
