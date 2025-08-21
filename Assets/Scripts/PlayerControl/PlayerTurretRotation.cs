@@ -10,12 +10,8 @@ namespace Tanchiki.PlayerControl
         [SerializeField] private InputActionAsset inputActions;
         private InputAction m_aimAction;
 
-        [Header("Settings")]
-        [SerializeField] private float m_rotationSpeed = 10f;
-        [SerializeField] private bool m_smoothRotation = true;
-
         private Camera m_mainCamera;
-        private Transform m_turretTransform;
+        
 
         private void Awake()
         {
@@ -36,7 +32,7 @@ namespace Tanchiki.PlayerControl
         {
             RotateTowerTowardsMouse();
         }
-
+        
         private void RotateTowerTowardsMouse()
         {
             if (m_aimAction == null) return;
@@ -44,21 +40,7 @@ namespace Tanchiki.PlayerControl
             Vector2 mousePosition = m_aimAction.ReadValue<Vector2>();
             Vector2 worldMousePosition = m_mainCamera.ScreenToWorldPoint(mousePosition);
 
-            Vector2 direction = worldMousePosition - (Vector2)m_turretTransform.position;
-            float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-            if (m_smoothRotation)
-            {
-                // ѕлавный поворот
-                float currentAngle = m_turretTransform.eulerAngles.z;
-                float angle = Mathf.MoveTowardsAngle(currentAngle, targetAngle, m_rotationSpeed * Time.deltaTime);
-                m_turretTransform.rotation = Quaternion.Euler(0f, 0f, angle);
-            }
-            else
-            {
-                // ћгновенный поворот
-                m_turretTransform.rotation = Quaternion.Euler(0f, 0f, targetAngle);
-            }
+            RotateToPoint(worldMousePosition);
         }
 
         private void OnEnable()

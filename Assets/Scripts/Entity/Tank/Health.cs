@@ -4,7 +4,13 @@ using UnityEngine.UI;
 
 namespace Tanchiki.Entity
 {
-    public class Health : MonoBehaviour
+    public interface IDamageable
+    {
+        void TakeDamage(float damage);
+        void Heal(float amount);
+        void Die();
+    }
+    public class Health : MonoBehaviour, IDamageable
     {
         [Header("Health Settings")]
         [SerializeField] internal float maxHealth;
@@ -52,7 +58,7 @@ namespace Tanchiki.Entity
         }
 
         // Смерть объекта
-        private void Die()
+        public void Die()
         {
             onDeath?.Invoke();
 
