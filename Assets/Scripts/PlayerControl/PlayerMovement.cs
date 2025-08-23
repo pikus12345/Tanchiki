@@ -13,9 +13,9 @@ namespace Tanchiki.PlayerControl
         private Vector2 m_moveVector;
         
 
-        private void Awake()
+        internal override void Awake()
         {
-            m_Rigidbody = GetComponent<Rigidbody2D>();
+            base.Awake();
             if (inputActions == null)
             {
                 Debug.LogError("InputActions Asset is not assigned!", this);

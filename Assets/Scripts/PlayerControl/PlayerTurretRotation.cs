@@ -13,9 +13,9 @@ namespace Tanchiki.PlayerControl
         private Camera m_mainCamera;
         
 
-        private void Awake()
+        internal void Awake()
         {
-            m_turretTransform = transform;
+            base.Awake();
             m_mainCamera = Camera.main;
 
             if (inputActions != null)

@@ -9,10 +9,14 @@ namespace Tanchiki.Entity
         [SerializeField] protected float m_maxSpeed;
         [SerializeField] protected float m_speedDrag;
 
-        protected Rigidbody2D m_Rigidbody;
+        internal Rigidbody2D m_Rigidbody;
 
         protected float m_currentSpeed;
-        protected void Moving(float moveVectorY)
+        internal virtual void Awake()
+        {
+            m_Rigidbody = GetComponent<Rigidbody2D>();
+        }
+        internal void Moving(float moveVectorY)
         {
             Vector2 movement = transform.right * Time.fixedDeltaTime * m_moveSpeed;
             m_currentSpeed += moveVectorY;
@@ -20,7 +24,7 @@ namespace Tanchiki.Entity
             m_currentSpeed = Mathf.Clamp(m_currentSpeed, -m_maxSpeed, m_maxSpeed);
             m_Rigidbody.MovePosition(m_Rigidbody.position + movement * m_currentSpeed);
         }
-        protected void Rotating(float moveVectorX)
+        internal void Rotating(float moveVectorX)
         {
             // Вычисляем угол поворота
             float rotation = -moveVectorX * m_rotationSpeed * Time.fixedDeltaTime;
