@@ -15,6 +15,7 @@ namespace Tanchiki.Entity
         [SerializeField] internal float rotateCorrection;
         [SerializeField] private LayerMask targetViewLayers;
         internal TurretRotation turretRotation;
+        internal Shooting shooting;
         internal Transform target;
 
         private TankAIFSM FSM;
@@ -29,6 +30,7 @@ namespace Tanchiki.Entity
             target = GameObject.FindGameObjectWithTag("Player").transform;
 
             turretRotation = transform.GetComponentInChildren<TurretRotation>();
+            shooting = transform.GetComponentInChildren<Shooting>();
 
             FSM = new TankAIFSM(this);
             FSM.ChangeState(new Idle());
@@ -37,6 +39,10 @@ namespace Tanchiki.Entity
         {
             FSM.UpdateState();
             CheckState();
+        }
+        private void FixedUpdate()
+        {
+            FSM.FixedUpdateState();
         }
         private void CheckState()
         {
@@ -89,6 +95,7 @@ namespace Tanchiki.Entity
     {
         void Enter(TankAIControl tank);
         void Update(TankAIControl tank);
+        void FixedUpdate(TankAIControl tank);
         void Exit(TankAIControl tank);
     }
 
@@ -97,6 +104,7 @@ namespace Tanchiki.Entity
     {
         public abstract void Enter(TankAIControl tank);
         public abstract void Update(TankAIControl tank);
+        public abstract void FixedUpdate(TankAIControl tank);
         public abstract void Exit(TankAIControl tank);
     }
 
@@ -122,6 +130,10 @@ namespace Tanchiki.Entity
         {
             currentState?.Update(tank);
         }
+        public void FixedUpdateState()
+        {
+            currentState?.FixedUpdate(tank);
+        }
     }
     #endregion
     #region Классы состояний
@@ -136,6 +148,7 @@ namespace Tanchiki.Entity
         {
             tank.turretRotation.RotateToAngle(0f);
         }
+        public override void FixedUpdate(TankAIControl tank) { }
         public override void Exit(TankAIControl tank) { }
     }
     public class Patrol : TankAIBaseState
@@ -145,6 +158,7 @@ namespace Tanchiki.Entity
         {
             tank.turretRotation.RotateToAngle(0f);
         }
+        public override void FixedUpdate(TankAIControl tank) { }
         public override void Exit(TankAIControl tank) { }
     }
     public class Attack : TankAIBaseState
@@ -155,8 +169,23 @@ namespace Tanchiki.Entity
         }
         public override void Update(TankAIControl tank) 
         {
-            Debug.Log("UPDATE ATTACK");
             tank.turretRotation.RotateToPoint(tank.target.position);
+            if (Vector2.Distance(tank.transform.position, tank.target.position) < tank.stopDistance)
+            {
+                tank.shooting.Shoot();
+            }
+        }
+        public override void FixedUpdate(TankAIControl tank) 
+        {
+            if (Mathf.Abs(tank.DifferenceToTargetAngleByPosition(tank.target.position)) > tank.rotateCorrection)
+            {
+                tank.RotateToPoint(tank.target.position);
+                Debug.Log(tank.DifferenceToTargetAngleByPosition(tank.target.position));
+            }
+            else if(Vector2.Distance(tank.transform.position, tank.target.position) > tank.stopDistance)
+            {
+                tank.Moving(1f);
+            }
         }
         public override void Exit(TankAIControl tank) { }
     }

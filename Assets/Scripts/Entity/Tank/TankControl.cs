@@ -32,5 +32,35 @@ namespace Tanchiki.Entity
             // Применяем поворот к Rigidbody
             m_Rigidbody.MoveRotation(m_Rigidbody.rotation + rotation);
         }
+        internal void RotateToAngle(float targetAngle)
+        {
+            float maxRotation = m_rotationSpeed * Time.fixedDeltaTime;
+            float currentAngle = m_Rigidbody.rotation;
+            float angle = Mathf.MoveTowardsAngle(currentAngle, targetAngle, maxRotation);
+            float diff = Mathf.DeltaAngle(currentAngle, angle);
+            Debug.Log(diff);
+            m_Rigidbody.MoveRotation(angle);
+        }
+        internal float DifferenceToTargetAngle(float targetAngle)
+        {
+            float maxRotation = m_rotationSpeed;
+            float currentAngle = m_Rigidbody.rotation;
+            float angle = Mathf.MoveTowardsAngle(currentAngle, targetAngle, maxRotation);
+            float diff = Mathf.DeltaAngle(currentAngle, angle);
+            return diff;
+        }
+        internal float DifferenceToTargetAngleByPosition(Vector2 worldPosition)
+        {
+            Vector2 direction = worldPosition - (Vector2)m_Rigidbody.position;
+            float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            return DifferenceToTargetAngle(targetAngle);
+        }
+        internal void RotateToPoint(Vector2 worldPosition)
+        {
+            Vector2 direction = worldPosition - (Vector2)m_Rigidbody.position;
+            float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+            RotateToAngle(targetAngle);
+        }
     }
 }
