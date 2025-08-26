@@ -6,14 +6,18 @@ namespace Tanchiki.Entity
     public class TankAIControl : TankControl
     {
         [Header("AI Settings")]
-        [SerializeField] private PatrolRoute patrolRoute;
-        private int currentPatrolPoint;
+        [SerializeField] internal PatrolRoute patrolRoute;
+        internal int currentPatrolPoint;
         private bool doPatrol;
 
         [SerializeField] private float viewDistance;
+        [SerializeField] internal float shootDistance;
         [SerializeField] internal float stopDistance;
         [SerializeField] internal float rotateCorrection;
         [SerializeField] private LayerMask targetViewLayers;
+        [SerializeField] private float seenMemoryTime;
+
+        internal float timeBeforeLastSeenPlayer = Mathf.Infinity;
         internal TurretRotation turretRotation;
         internal Shooting shooting;
         internal Transform target;
@@ -26,6 +30,8 @@ namespace Tanchiki.Entity
         private void Initialize()
         {
             doPatrol = patrolRoute;
+
+            GetComponent<Health>().onTakeDamage.AddListener(() => PlayerSeen());
 
             target = GameObject.FindGameObjectWithTag("Player").transform;
 
@@ -47,7 +53,8 @@ namespace Tanchiki.Entity
         private void CheckState()
         {
             TankAIBaseState state = FSM.currentState;
-            if(isPlayerVisible())
+            timeBeforeLastSeenPlayer += Time.deltaTime;
+            if (isPlayerVisible())
             {
                 FSM.ChangeState(new Attack());
             }
@@ -71,19 +78,27 @@ namespace Tanchiki.Entity
             {
                 if (hit.collider.CompareTag("Player"))
                 {
+                    PlayerSeen();
                     return true;
                 }
             }
+            if(timeBeforeLastSeenPlayer <= seenMemoryTime)
+            {
+                return true;
+            }
             return false;
         }
-        private void OnDrawGizmos()
+        private void PlayerSeen()
         {
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawWireSphere(transform.position, viewDistance);
+            timeBeforeLastSeenPlayer = 0;
         }
         private void OnDrawGizmosSelected()
         {
-            Gizmos.color = Color.red;
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireSphere(transform.position, viewDistance);
+            Gizmos.color = Color.indianRed;
+            Gizmos.DrawWireSphere(transform.position, shootDistance);
+            Gizmos.color = Color.yellowGreen;
             Gizmos.DrawWireSphere(transform.position, stopDistance);
         }
     }
@@ -146,31 +161,44 @@ namespace Tanchiki.Entity
         }
         public override void Update(TankAIControl tank) 
         {
-            tank.turretRotation.RotateToAngle(0f);
+            tank.turretRotation.RotateToAngle(tank.m_Rigidbody.rotation);
         }
         public override void FixedUpdate(TankAIControl tank) { }
         public override void Exit(TankAIControl tank) { }
     }
     public class Patrol : TankAIBaseState
     {
+        Vector2 target = Vector2.zero;
         public override void Enter(TankAIControl tank) { }
         public override void Update(TankAIControl tank) 
         {
-            tank.turretRotation.RotateToAngle(0f);
+            target = tank.patrolRoute.GetWaypoints()[tank.currentPatrolPoint];
+            tank.turretRotation.RotateToAngle(tank.m_Rigidbody.rotation);
+            if(Vector2.Distance(tank.transform.position, target) < 0.2f)
+            {
+                tank.currentPatrolPoint++;
+            }
         }
-        public override void FixedUpdate(TankAIControl tank) { }
+        public override void FixedUpdate(TankAIControl tank) 
+        {
+            if (Mathf.Abs(tank.DifferenceToTargetAngleByPosition(target)) > tank.rotateCorrection)
+            {
+                tank.RotateToPoint(target);
+            }
+            else
+            {
+                tank.Moving(1f);
+            }
+        }
         public override void Exit(TankAIControl tank) { }
     }
     public class Attack : TankAIBaseState
     {
-        public override void Enter(TankAIControl tank) 
-        { 
-            Debug.Log("Attack State Entered"); 
-        }
+        public override void Enter(TankAIControl tank) { }
         public override void Update(TankAIControl tank) 
         {
             tank.turretRotation.RotateToPoint(tank.target.position);
-            if (Vector2.Distance(tank.transform.position, tank.target.position) < tank.stopDistance)
+            if (Vector2.Distance(tank.transform.position, tank.target.position) < tank.shootDistance)
             {
                 tank.shooting.Shoot();
             }
@@ -180,14 +208,14 @@ namespace Tanchiki.Entity
             if (Mathf.Abs(tank.DifferenceToTargetAngleByPosition(tank.target.position)) > tank.rotateCorrection)
             {
                 tank.RotateToPoint(tank.target.position);
-                Debug.Log(tank.DifferenceToTargetAngleByPosition(tank.target.position));
             }
             else if(Vector2.Distance(tank.transform.position, tank.target.position) > tank.stopDistance)
             {
                 tank.Moving(1f);
             }
+            
         }
-        public override void Exit(TankAIControl tank) { }
+        public override void Exit(TankAIControl tank) {}
     }
     #endregion
     #endregion

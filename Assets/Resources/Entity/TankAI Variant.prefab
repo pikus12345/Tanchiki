@@ -120,16 +120,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_moveSpeed: 1
-  m_rotationSpeed: 150
+  m_rotationSpeed: 90
   m_maxSpeed: 3
   m_speedDrag: 15
   patrolRoute: {fileID: 0}
-  viewDistance: 8
-  stopDistance: 4
+  viewDistance: 6
+  shootDistance: 5
+  stopDistance: 2
   rotateCorrection: 5
   targetViewLayers:
     serializedVersion: 2
     m_Bits: 65
+  seenMemoryTime: 7
 --- !u!4 &7559075286662849995 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2358602173909218929, guid: 9b224e48f5ba7e04aa1840018c91d1e0, type: 3}

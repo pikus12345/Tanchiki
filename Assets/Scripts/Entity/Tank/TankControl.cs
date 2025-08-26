@@ -38,7 +38,6 @@ namespace Tanchiki.Entity
             float currentAngle = m_Rigidbody.rotation;
             float angle = Mathf.MoveTowardsAngle(currentAngle, targetAngle, maxRotation);
             float diff = Mathf.DeltaAngle(currentAngle, angle);
-            Debug.Log(diff);
             m_Rigidbody.MoveRotation(angle);
         }
         internal float DifferenceToTargetAngle(float targetAngle)

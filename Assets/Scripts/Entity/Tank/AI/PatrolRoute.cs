@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PatrolRoute : MonoBehaviour
 {
-    public List<Vector3> GetWaypoints()
+    [SerializeField] private bool ShowWaypoints;
+    public List<Vector2> GetWaypoints()
     {
-        var waypoints = new List<Vector3>();
+        var waypoints = new List<Vector2>();
         foreach (Transform child in transform)
         {
             waypoints.Add(child.position);
@@ -15,8 +16,9 @@ public class PatrolRoute : MonoBehaviour
     }
 
     // В редакторе показываем точки
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
+        if (!ShowWaypoints) { return; }
         Gizmos.color = Color.blue;
         for (int i = 0; i < transform.childCount; i++)
         {
