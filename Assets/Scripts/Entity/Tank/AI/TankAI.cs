@@ -176,7 +176,15 @@ namespace Tanchiki.Entity
             tank.turretRotation.RotateToAngle(tank.m_Rigidbody.rotation);
             if(Vector2.Distance(tank.transform.position, target) < 0.2f)
             {
-                tank.currentPatrolPoint++;
+                if (tank.currentPatrolPoint != tank.patrolRoute.GetWaypoints().Count-1)
+                {
+                    tank.currentPatrolPoint++;
+                }
+                else
+                {
+                    tank.currentPatrolPoint = 0;
+                }
+                
             }
         }
         public override void FixedUpdate(TankAIControl tank) 

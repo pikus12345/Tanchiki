@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SettingsYG2
   m_EditorClassIdentifier: 
   Authorization:
-    playerPhotoSize: 1
+    playerPhotoSize: 0
     authorized: 1
     playerName: Player current
     uniqueID: 000

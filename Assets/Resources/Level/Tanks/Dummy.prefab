@@ -10057,7 +10057,7 @@ GameObject:
   - component: {fileID: 3818813669794095324}
   - component: {fileID: 5441760616328424}
   m_Layer: 7
-  m_Name: Tank
+  m_Name: Dummy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10127,7 +10127,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 1c737c6b0f4725942adadb43b01105cc, type: 3}
-  m_Color: {r: 0.7647059, g: 0.29803926, b: 0.31190294, a: 1}
+  m_Color: {r: 0.3230655, g: 0.79026765, b: 0.835, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -10238,8 +10238,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 361f87c787dda864584e7568750c021d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 100
+  maxHealth: 50
+  currentHealth: 50
   onTakeDamage:
     m_PersistentCalls:
       m_Calls: []
@@ -15402,7 +15402,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 15
   m_Sprite: {fileID: 21300000, guid: cb70a60f4ea73df4b870c6ebacbf3178, type: 3}
-  m_Color: {r: 0.7647059, g: 0.3019608, b: 0.3137255, a: 1}
+  m_Color: {r: 0.35042855, g: 0.8495238, b: 0.89199996, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

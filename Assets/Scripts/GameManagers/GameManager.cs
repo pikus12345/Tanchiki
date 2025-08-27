@@ -99,6 +99,7 @@ namespace Tanchiki.GameManagers
             {
                 Instance.EndScreen.ShowEndScreen(true);
                 Instance.playerHealth.GetComponent<PlayerMovement>().enabled = false;
+                LevelManager.CompleteLevel();
                 Debug.Log("Victory State Entered"); 
             }
             public override void Update() => Debug.Log("Victory State Update");

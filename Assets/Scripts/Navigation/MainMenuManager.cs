@@ -1,5 +1,7 @@
+using Tanchiki.GameManagers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using YG;
 
 
 namespace Tanchiki.Navigation
@@ -18,6 +20,10 @@ namespace Tanchiki.Navigation
         public void Quit()
         {
             Application.Quit();
+        }
+        public void ResetProgress()
+        {
+            LevelManager.ResetProgress();
         }
         #region Навигация между панелями
 
