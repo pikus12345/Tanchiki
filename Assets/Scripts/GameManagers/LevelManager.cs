@@ -6,7 +6,7 @@ namespace Tanchiki.GameManagers
 {
     public static class LevelManager
     {
-        private static int currentLevel;
+        private static int currentLevel; //displayLevelIndex is saving here
         internal static void SetCurrentLevel(int level)
         {
             currentLevel = level;

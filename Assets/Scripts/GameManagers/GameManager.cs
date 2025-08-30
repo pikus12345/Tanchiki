@@ -7,7 +7,7 @@ namespace Tanchiki.GameManagers
 {
     public class GameManager : MonoBehaviour
     {
-        #region Синглтон
+        #region Singleton
         public static GameManager Instance { get; private set; }
         private void Start()
         {
@@ -23,7 +23,7 @@ namespace Tanchiki.GameManagers
             }
         }
         #endregion
-        #region Инициализация
+        #region Realization
         private Health playerHealth;
         [SerializeField] private EndScreenShower EndScreen;
         private void Initialize()
@@ -40,8 +40,8 @@ namespace Tanchiki.GameManagers
             playerHealth.onDeath?.RemoveListener(SetGameOver);
         }
         #endregion
-        #region Состояния игры
-        #region FSM Реализация
+        #region FSM
+        #region FSM Realization
         public abstract class GameState
         {
             public abstract void Enter();
@@ -62,7 +62,7 @@ namespace Tanchiki.GameManagers
             public void Update() => currentState?.Update();
         }
         #endregion
-        #region Состояния
+        #region States
         public class Playing : GameState
         {
             public override void Enter() {
@@ -106,7 +106,7 @@ namespace Tanchiki.GameManagers
             public override void Exit() => Debug.Log("Victory State Exited");
         }
         #endregion
-        #region Управление FSM
+        #region FSM Control
         internal GameStateMachine stateMachine;
         public void InitializeGameStateMachine()
         {

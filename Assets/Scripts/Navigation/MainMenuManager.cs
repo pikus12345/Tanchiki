@@ -17,15 +17,11 @@ namespace Tanchiki.Navigation
         {
             StartGame(TEMPLATELEVEL_BUILD_INDEX);
         }
-        public void Quit()
-        {
-            Application.Quit();
-        }
         public void ResetProgress()
         {
             LevelManager.ResetProgress();
         }
-        #region Навигация между панелями
+        #region Panels Navigation
 
         [SerializeField] GameObject mainMenuPanel;
         [SerializeField] GameObject settingsPanel;

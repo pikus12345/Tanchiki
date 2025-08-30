@@ -4,6 +4,7 @@ using Tanchiki.GameManagers;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using YG;
 
 namespace Tanchiki.Navigation
 {
@@ -12,13 +13,15 @@ namespace Tanchiki.Navigation
         public List<Level> Levels = new List<Level>();
         public GameObject ButtonPrefab;
         public Transform SpawnTransform;
+        private List<GameObject> initializedButtons = new List<GameObject>();
 
-        private void Start()
+        private void OnEnable()
         {
             RefreshButtons();
         }
         private void RefreshButtons()
         {
+            int completedLevels = YG2.saves.completedLevels;
             foreach (var level in Levels)
             {
                 Transform button = Instantiate(ButtonPrefab, SpawnTransform).transform;
@@ -28,7 +31,19 @@ namespace Tanchiki.Navigation
                         level.LevelBuildIndex, 
                         level.DisplayLevelIndex)
                     );
+                if (level.DisplayLevelIndex > completedLevels+1)
+                {
+                    button.GetComponent<Button>().interactable = false;
+                } 
                 button.SetAsFirstSibling();
+                initializedButtons.Add(button.gameObject);
+            }
+        }
+        private void OnDisable()
+        {
+            foreach (var btn in initializedButtons)
+            {
+                Destroy(btn);
             }
         }
     }

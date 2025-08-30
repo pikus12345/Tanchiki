@@ -9,8 +9,8 @@ namespace Tanchiki.Navigation
 {
     public class LoadingScreen : MonoBehaviour
     {
-        public GameObject screen;
-        public Slider scaleSlider;
+        public GameObject Screen;
+        public Slider ScaleSlider;
 
         public static LoadingScreen Instance;
         private void Awake()
@@ -28,7 +28,7 @@ namespace Tanchiki.Navigation
 
         public void Loading(int sceneBuildIndex)
         {
-            screen.SetActive(true);
+            Screen.SetActive(true);
             StartCoroutine(LoadAsync(sceneBuildIndex));
         }
         IEnumerator LoadAsync(int sceneBuildIndex)
@@ -38,12 +38,12 @@ namespace Tanchiki.Navigation
 
             while (!loadAsync.isDone)
             {
-                scaleSlider.value = loadAsync.progress;
+                ScaleSlider.value = loadAsync.progress;
                 
                 if (loadAsync.progress >= .9f && !loadAsync.allowSceneActivation)
                 {
                     loadAsync.allowSceneActivation = true;
-                    screen.SetActive(false);
+                    Screen.SetActive(false);
                 }
                 yield return null;
             }
