@@ -1,8 +1,11 @@
 using UnityEngine;
-[CreateAssetMenu(fileName = "Level", menuName = "ScriptableObjects/Level", order = 0)]
-public class Level : ScriptableObject
+namespace Tanchiki.GameManagers
 {
-    public int LevelBuildIndex;
-    public int DisplayLevelIndex;
-    public string LevelName;
+    [CreateAssetMenu(fileName = "Level", menuName = "ScriptableObjects/Level", order = 0)]
+    public class Level : ScriptableObject
+    {
+        public int LevelBuildIndex;
+        public int DisplayLevelIndex;
+        public string LevelName;
+    }
 }

@@ -16,7 +16,7 @@ namespace Tanchiki.Navigation
 
         [Header("Audio Settings")]
         [SerializeField] private bool pauseAudio = true;
-        #region Синглтон
+        #region Singleton
         public static PauseManager Instance;
         private void Awake()
         {
@@ -50,32 +50,9 @@ namespace Tanchiki.Navigation
             inputAsset.FindActionMap("Player").Disable();
         }
 
-        // Включить/выключить паузу
         public void TogglePause()
         {
             GameManager.Instance.TogglePause();
-
-            /*if(!GameManager.Instance.isPaused())
-            {
-                GameManager.Instance.SetGameState(GameManager.GameState.Paused);
-            }
-            else if (GameManager.Instance.isPaused())
-            {
-                GameManager.Instance.SetGameState(GameManager.GameState.Playing);
-            }
-
-            // Остановка/возобновление аудио
-            if (pauseAudio)
-            {
-                AudioListener.pause = (GameManager.Instance.isPaused());
-            }
-
-            // Включение/выключение UI панели
-            if (pausePanel != null)
-            {
-                pausePanel.SetActive(GameManager.Instance.isPaused());
-            }
-            */
         }
         public void DoPaused()
         {
@@ -94,13 +71,5 @@ namespace Tanchiki.Navigation
             }
         }
 
-        // Принудительно установить паузу (например, из другого скрипта) LEGACY
-        //public void SetPause(bool pause)
-        //{
-        //    if (GameManager.Instance.isPaused() != pause)
-        //    {
-        //        TogglePause();
-        //    }
-        //}
     }
 }

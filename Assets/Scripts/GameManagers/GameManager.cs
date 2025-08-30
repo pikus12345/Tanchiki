@@ -25,7 +25,7 @@ namespace Tanchiki.GameManagers
         #endregion
         #region Realization
         private Health playerHealth;
-        [SerializeField] private EndScreenShower EndScreen;
+        [SerializeField] private EndScreenShower endScreen;
         private void Initialize()
         {
             InitializeGameStateMachine();
@@ -87,7 +87,7 @@ namespace Tanchiki.GameManagers
         {
             public override void Enter() 
             {
-                Instance.EndScreen.ShowEndScreen(false);
+                Instance.endScreen.ShowEndScreen(false);
                 Debug.Log("GameOver State Entered");
             }
             public override void Update() => Debug.Log("GameOver State Update");
@@ -97,7 +97,7 @@ namespace Tanchiki.GameManagers
         {
             public override void Enter() 
             {
-                Instance.EndScreen.ShowEndScreen(true);
+                Instance.endScreen.ShowEndScreen(true);
                 Instance.playerHealth.GetComponent<PlayerMovement>().enabled = false;
                 LevelManager.CompleteLevel();
                 Debug.Log("Victory State Entered"); 
@@ -108,7 +108,7 @@ namespace Tanchiki.GameManagers
         #endregion
         #region FSM Control
         internal GameStateMachine stateMachine;
-        public void InitializeGameStateMachine()
+        private void InitializeGameStateMachine()
         {
             stateMachine = new GameStateMachine();
             SetGameState(new Playing());
@@ -134,7 +134,5 @@ namespace Tanchiki.GameManagers
         public void SetVictory() => SetGameState(new Victory());
         #endregion
         #endregion
-
-        
     }
 }
