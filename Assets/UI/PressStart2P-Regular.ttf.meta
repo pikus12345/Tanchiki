@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ff6a43d61baa2ad4ebf1c99b1ab19a45
+guid: 87f14896e29d092469d6bad2a84fd875
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Minecraft Rus
+  - Press Start 2P
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

@@ -8,7 +8,7 @@ namespace Tanchiki.Entity
         [SerializeField] protected float m_rotationSpeed = 10f;
         [SerializeField] protected bool m_smoothRotation = true;
         protected Transform m_turretTransform;
-        internal void Awake()
+        internal virtual void Awake()
         {
             m_turretTransform = transform;
         }

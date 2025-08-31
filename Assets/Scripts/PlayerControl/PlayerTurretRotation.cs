@@ -13,7 +13,7 @@ namespace Tanchiki.PlayerControl
         private Camera m_mainCamera;
         
 
-        internal void Awake()
+        internal override void Awake()
         {
             base.Awake();
             m_mainCamera = Camera.main;
