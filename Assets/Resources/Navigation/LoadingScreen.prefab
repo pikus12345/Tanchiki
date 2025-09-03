@@ -355,7 +355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screen: {fileID: 352929277307674675}
-  scaleSlider: {fileID: 5148553989708866696}
+  MessageText: {fileID: 0}
 --- !u!1 &8457102020870458216
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,6 +404,22 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4375369961035475735, guid: 4cba6e3964153d94ab7b24e46cb8b1f9, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4375369961035475735, guid: 4cba6e3964153d94ab7b24e46cb8b1f9, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4375369961035475735, guid: 4cba6e3964153d94ab7b24e46cb8b1f9, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4375369961035475735, guid: 4cba6e3964153d94ab7b24e46cb8b1f9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5148851283684673420, guid: 4cba6e3964153d94ab7b24e46cb8b1f9, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -430,11 +446,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5148851283684673420, guid: 4cba6e3964153d94ab7b24e46cb8b1f9, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -512
       objectReference: {fileID: 0}
     - target: {fileID: 5148851283684673420, guid: 4cba6e3964153d94ab7b24e46cb8b1f9, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -128
       objectReference: {fileID: 0}
     - target: {fileID: 5148851283684673420, guid: 4cba6e3964153d94ab7b24e46cb8b1f9, type: 3}
       propertyPath: m_LocalPosition.x

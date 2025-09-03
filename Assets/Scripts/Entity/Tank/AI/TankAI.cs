@@ -221,7 +221,6 @@ namespace Tanchiki.Entity
             {
                 tank.Moving(1f);
             }
-            
         }
         public override void Exit(TankAIControl tank) {}
     }

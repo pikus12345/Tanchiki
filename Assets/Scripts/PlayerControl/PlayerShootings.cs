@@ -23,7 +23,7 @@ namespace Tanchiki.PlayerControl
         private void Update()
         {
             UpdateShootingTimer();
-            if (shootAction.WasPressedThisFrame()){
+            if (shootAction.IsPressed()){
                 Shoot();
             }
         }
