@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Tanchiki.Entity;
+using YG;
 
 namespace Tanchiki.PlayerControl
 {
@@ -9,18 +10,20 @@ namespace Tanchiki.PlayerControl
         [Header("Input")]
         [SerializeField] private InputActionAsset inputActions;
         private InputAction m_aimAction;
+        private InputAction m_aimActionByStick;
 
         private Camera m_mainCamera;
         
 
-        private void Awake()
+        internal override void Awake()
         {
-            m_turretTransform = transform;
+            base.Awake();
             m_mainCamera = Camera.main;
 
             if (inputActions != null)
             {
                 m_aimAction = inputActions.FindAction("AimByMousePosition");
+                m_aimActionByStick = inputActions.FindAction("AimByStick");
             }
             else
             {
@@ -30,7 +33,15 @@ namespace Tanchiki.PlayerControl
 
         private void Update()
         {
-            RotateTowerTowardsMouse();
+            if (YG2.envir.isDesktop)
+            {
+                RotateTowerTowardsMouse();
+            }
+            else
+            {
+                RotateTowerByStick();
+            }
+            
         }
         
         private void RotateTowerTowardsMouse()
@@ -41,6 +52,17 @@ namespace Tanchiki.PlayerControl
             Vector2 worldMousePosition = m_mainCamera.ScreenToWorldPoint(mousePosition);
 
             RotateToPoint(worldMousePosition);
+        }
+        private void RotateTowerByStick()
+        {
+            if (m_aimActionByStick == null) return;
+            Vector2 value = m_aimActionByStick.ReadValue<Vector2>();
+            if (value.magnitude != 0)
+            {
+                RotateToAngle(Vector2.SignedAngle(Vector2.right, value));
+                GetComponent<Shooting>().Shoot();
+            }
+            
         }
 
         private void OnEnable()

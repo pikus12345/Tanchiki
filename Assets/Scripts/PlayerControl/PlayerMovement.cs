@@ -11,11 +11,13 @@ namespace Tanchiki.PlayerControl
 
         private InputAction m_moveAction;
         private Vector2 m_moveVector;
+
+        [SerializeField] private float rotateCorrection;
         
 
-        private void Awake()
+        internal override void Awake()
         {
-            m_Rigidbody = GetComponent<Rigidbody2D>();
+            base.Awake();
             if (inputActions == null)
             {
                 Debug.LogError("InputActions Asset is not assigned!", this);
@@ -29,8 +31,9 @@ namespace Tanchiki.PlayerControl
         }
         private void FixedUpdate()
         {
-            Moving();
-            Rotating();
+            //Moving();
+            //Rotating();
+            MovingUntilRotate(m_moveVector);
         }
         protected void Moving()
         {
@@ -53,6 +56,21 @@ namespace Tanchiki.PlayerControl
             if (collision.gameObject.CompareTag("Finish")) 
             {
                 GameManager.Instance.SetVictory();
+            }
+        }
+        private void MovingUntilRotate(Vector2 moveVector)
+        {
+            if (moveVector.magnitude == 0) return;
+            float targetAngle = Vector2.SignedAngle(Vector2.right, moveVector);
+
+            if (Mathf.Abs(Mathf.DeltaAngle(m_Rigidbody.rotation, targetAngle)) > rotateCorrection)
+            {
+                RotateToAngle(targetAngle);
+            }
+            else
+            {
+                RotateToAngle(targetAngle);
+                Moving(moveVector.magnitude);
             }
         }
     }

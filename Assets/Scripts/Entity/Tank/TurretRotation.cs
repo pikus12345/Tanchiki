@@ -8,11 +8,19 @@ namespace Tanchiki.Entity
         [SerializeField] protected float m_rotationSpeed = 10f;
         [SerializeField] protected bool m_smoothRotation = true;
         protected Transform m_turretTransform;
-        protected void RotateToPoint(Vector2 worldPosition)
+        internal virtual void Awake()
+        {
+            m_turretTransform = transform;
+        }
+        internal void RotateToPoint(Vector2 worldPosition)
         {
             Vector2 direction = worldPosition - (Vector2)m_turretTransform.position;
             float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
+            RotateToAngle(targetAngle);
+        }
+        internal void RotateToAngle(float targetAngle)
+        {
             if (m_smoothRotation)
             {
                 // Плавный поворот

@@ -1,5 +1,7 @@
+using Tanchiki.GameManagers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using YG;
 
 
 namespace Tanchiki.Navigation
@@ -15,11 +17,11 @@ namespace Tanchiki.Navigation
         {
             StartGame(TEMPLATELEVEL_BUILD_INDEX);
         }
-        public void Quit()
+        public void ResetProgress()
         {
-            Application.Quit();
+            LevelManager.ResetProgress();
         }
-        #region Навигация между панелями
+        #region Panels Navigation
 
         [SerializeField] GameObject mainMenuPanel;
         [SerializeField] GameObject settingsPanel;

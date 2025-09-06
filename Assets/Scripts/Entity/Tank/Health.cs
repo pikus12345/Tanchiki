@@ -114,7 +114,6 @@ namespace Tanchiki.Entity
                 {
                     TakeDamage(-box.health);
                 }
-                Destroy(collision.collider.gameObject);
             }
 
         }
