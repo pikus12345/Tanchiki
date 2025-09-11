@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0c1128adfa6f8124c951928c003e93d1
+guid: 2ba4f126e219827459dfc5fea8cbb722
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3041712174193851351
-    second: urina_turret_0
+      213: 8581363780399802525
+    second: clock_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,12 +113,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: urina_turret_0
+      name: clock_0
       rect:
         serializedVersion: 2
-        x: 14
-        y: 8
-        width: 32
+        x: 2
+        y: 0
+        width: 12
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7db3ec35b15563a20800000000000000
-      internalID: 3041712174193851351
+      spriteID: d98222b64e0271770800000000000000
+      internalID: 8581363780399802525
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      urina_turret_0: 3041712174193851351
+      clock_0: 8581363780399802525
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -20,6 +20,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: TankAI Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3538190481475153346, guid: 9b224e48f5ba7e04aa1840018c91d1e0, type: 3}
+      propertyPath: m_fontSize
+      value: 4.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 3538190481475153346, guid: 9b224e48f5ba7e04aa1840018c91d1e0, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: d6ff99994a1f9954e8249c96a873ce3c, type: 2}
+    - target: {fileID: 3538190481475153346, guid: 9b224e48f5ba7e04aa1840018c91d1e0, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -1221306533252362314, guid: d6ff99994a1f9954e8249c96a873ce3c, type: 2}
     - target: {fileID: 5647265944839637102, guid: 9b224e48f5ba7e04aa1840018c91d1e0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5
@@ -106,10 +118,11 @@ MonoBehaviour:
   shootingLayerMask:
     serializedVersion: 2
     m_Bits: 193
-  damage: 15
+  damage: 10
   firePoint: {fileID: 7559075286662849995}
   fireEffect: {fileID: 8174659642486132603, guid: be97e00fed6f51548b90ae9e5b51ce98, type: 3}
   hitEffect: {fileID: 5822862365322934457, guid: 0027949915e4b5f40866877b28ff54b2, type: 3}
+  shootSound: {fileID: 8300000, guid: c9002cc57628d2444ae32498e75fee9d, type: 3}
 --- !u!1 &7296539128702637725 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3251257463439394087, guid: 9b224e48f5ba7e04aa1840018c91d1e0, type: 3}

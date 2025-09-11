@@ -1084,7 +1084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ec8baa579c03a544a42c01dc8576aef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mobileControlsObject: {fileID: 0}
+  mobileControlsObject: {fileID: 2768362536379432702}
 --- !u!1 &8558514818847679886
 GameObject:
   m_ObjectHideFlags: 0

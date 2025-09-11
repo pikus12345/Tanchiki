@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.UI.Image;
@@ -7,29 +8,34 @@ namespace Tanchiki.Entity
     public class Shooting : MonoBehaviour
     {
         [Header("Settings")]
-        [SerializeField] private float shootingDelay;
+        [SerializeField] internal float shootingDelay;
         [SerializeField] private float shootDistance;
         [SerializeField] private LayerMask shootingLayerMask;
         [SerializeField] private float damage;
-        private float shootingTimer;
+        internal bool canShoot = true;
+        internal AudioSource audioSource;
 
         [Header("Links & Prefabs")]
         [SerializeField] private Transform firePoint;
         [SerializeField] private GameObject fireEffect;
         [SerializeField] private GameObject hitEffect;
+        [SerializeField] private AudioClip shootSound;
         
-        private void Update()
+        internal virtual void Start()
         {
-            UpdateShootingTimer();
+            audioSource = GetComponent<AudioSource>();
         }
-        protected void UpdateShootingTimer()
+        internal virtual IEnumerator reloadRoutine()
         {
-            shootingTimer += Time.deltaTime;
+            canShoot = false;
+            yield return new WaitForSeconds(shootingDelay);
+            canShoot = true;
         }
         public void Shoot()
         {
-            if (shootingTimer < shootingDelay) { return; }
-            shootingTimer = 0;
+            if (!canShoot) { return; }
+            StartCoroutine(reloadRoutine());
+            audioSource.PlayOneShot(shootSound);
 
             if (fireEffect != null)
             {

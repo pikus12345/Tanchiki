@@ -64,6 +64,18 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3538190481475153346, guid: 9b224e48f5ba7e04aa1840018c91d1e0, type: 3}
+      propertyPath: m_fontSize
+      value: 4.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 3538190481475153346, guid: 9b224e48f5ba7e04aa1840018c91d1e0, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: d6ff99994a1f9954e8249c96a873ce3c, type: 2}
+    - target: {fileID: 3538190481475153346, guid: 9b224e48f5ba7e04aa1840018c91d1e0, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -1221306533252362314, guid: d6ff99994a1f9954e8249c96a873ce3c, type: 2}
     - target: {fileID: 3867803502645403638, guid: 9b224e48f5ba7e04aa1840018c91d1e0, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -200,16 +212,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12034f1366aec8e43a327dd5217b277a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootingDelay: 2
+  shootingDelay: 0.6
   shootDistance: 25
   shootingLayerMask:
     serializedVersion: 2
     m_Bits: 129
-  damage: 40
+  damage: 30
   firePoint: {fileID: 6247615805653729082}
   fireEffect: {fileID: 8174659642486132603, guid: be97e00fed6f51548b90ae9e5b51ce98, type: 3}
   hitEffect: {fileID: 5822862365322934457, guid: 0027949915e4b5f40866877b28ff54b2, type: 3}
+  shootSound: {fileID: 8300000, guid: c9002cc57628d2444ae32498e75fee9d, type: 3}
   inputAsset: {fileID: -944628639613478452, guid: 6e4626f1fcd23b54b9861dce0b67214b, type: 3}
+  reloadCompletedSound: {fileID: 8300000, guid: 410f06c42f4f07449b8b33b4f467b6d2, type: 3}
 --- !u!4 &6247615805653729082 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2358602173909218929, guid: 9b224e48f5ba7e04aa1840018c91d1e0, type: 3}
