@@ -25,7 +25,7 @@ namespace Tanchiki.PlayerControl
             }
             m_moveAction = inputActions.FindAction("Move");
         }
-        private void Update()
+        internal void Update()
         {
             m_moveVector = m_moveAction.ReadValue<Vector2>();
         }

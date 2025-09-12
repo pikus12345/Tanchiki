@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: currentHealth
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 235505186550909814, guid: 9b224e48f5ba7e04aa1840018c91d1e0, type: 3}
+      propertyPath: m_Volume
+      value: 0.107
+      objectReference: {fileID: 0}
     - target: {fileID: 296728265358866836, guid: 9b224e48f5ba7e04aa1840018c91d1e0, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -167,6 +171,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 9082366833295080340, guid: 9b224e48f5ba7e04aa1840018c91d1e0, type: 3}
     - {fileID: 9060651047048141301, guid: 9b224e48f5ba7e04aa1840018c91d1e0, type: 3}
+    - {fileID: 7748623832608086495, guid: 9b224e48f5ba7e04aa1840018c91d1e0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

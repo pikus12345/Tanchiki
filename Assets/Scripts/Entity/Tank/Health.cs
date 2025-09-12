@@ -70,6 +70,14 @@ namespace Tanchiki.Entity
                 sprite.color = deathColor;
             }
             GetComponent<TankControl>().enabled = false;
+            if (GetComponent<AudioSource>() != null)
+            {
+                if (GetComponent<DistanceBasedAudio>() != null)
+                {
+                    Destroy(GetComponent<DistanceBasedAudio>());
+                }
+                Destroy(GetComponent<AudioSource>());
+            }
 
             if (gameObject.CompareTag("Player"))
             {

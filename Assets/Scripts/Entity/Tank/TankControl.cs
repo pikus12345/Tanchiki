@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Tanchiki.Entity
 {
@@ -22,14 +22,15 @@ namespace Tanchiki.Entity
             m_currentSpeed += moveVectorY;
             m_currentSpeed = Mathf.MoveTowards(m_currentSpeed, 0, Time.fixedDeltaTime * m_speedDrag);
             m_currentSpeed = Mathf.Clamp(m_currentSpeed, -m_maxSpeed, m_maxSpeed);
+            
             m_Rigidbody.MovePosition(m_Rigidbody.position + movement * m_currentSpeed);
         }
         internal void Rotating(float moveVectorX)
         {
-            // ��������� ���� ��������
+            // Âû÷èñëÿåì óãîë ïîâîðîòà
             float rotation = -moveVectorX * m_rotationSpeed * Time.fixedDeltaTime;
 
-            // ��������� ������� � Rigidbody
+            // Ïðèìåíÿåì ïîâîðîò ê Rigidbody
             m_Rigidbody.MoveRotation(m_Rigidbody.rotation + rotation);
         }
         internal void RotateToAngle(float targetAngle)
@@ -60,6 +61,16 @@ namespace Tanchiki.Entity
             float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
             RotateToAngle(targetAngle);
+        }
+        public float Map(float value, float fromMin, float fromMax, float toMin, float toMax)
+        {
+            // Считаем, где находится value относительно исходного диапазона (это и есть нормализация)
+            float t = (value - fromMin) / (fromMax - fromMin);
+            // Переносим это относительное положение в новый диапазон
+            return Mathf.Lerp(toMin, toMax, t);
+
+            // Или одной строкой:
+            // return toMin + (value - fromMin) * (toMax - toMin) / (fromMax - fromMin);
         }
     }
 }
