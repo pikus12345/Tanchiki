@@ -174,7 +174,7 @@ namespace Tanchiki.Entity
         {
             target = tank.patrolRoute.GetWaypoints()[tank.currentPatrolPoint];
             tank.turretRotation.RotateToAngle(tank.m_Rigidbody.rotation);
-            if(Vector2.Distance(tank.transform.position, target) < 0.2f)
+            if(Vector2.Distance(tank.transform.position, target) < 0.5f)
             {
                 if (tank.currentPatrolPoint != tank.patrolRoute.GetWaypoints().Count-1)
                 {

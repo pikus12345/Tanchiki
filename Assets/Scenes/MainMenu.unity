@@ -1849,7 +1849,7 @@ GameObject:
   - component: {fileID: 1944697976}
   - component: {fileID: 1944697975}
   m_Layer: 0
-  m_Name: Death March
+  m_Name: Music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1864,11 +1864,11 @@ AudioSource:
   m_GameObject: {fileID: 1944697974}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -8632344719583231434, guid: 36192f785017c9941ad7b1267558348b, type: 2}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 2a7c432a02a385d4c891e38fa109c625, type: 3}
+  m_Resource: {fileID: 8300000, guid: a6ae6325a3fdb2a42871929506433ae3, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.118
+  m_Volume: 0.758
   m_Pitch: 1
   Loop: 1
   Mute: 0

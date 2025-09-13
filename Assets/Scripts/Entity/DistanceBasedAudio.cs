@@ -10,7 +10,7 @@ namespace Tanchiki.Entity
         [SerializeField] private bool setOnlyOnce;
         [SerializeField] private float maxDistance;
 
-        private void Start()
+        private void Awake()
         {
             audioSource = GetComponent<AudioSource>();
             listener = GameObject.FindGameObjectWithTag("Player").transform;

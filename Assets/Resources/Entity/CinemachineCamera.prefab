@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8243107803816994169}
   - component: {fileID: 4057719150695804109}
   - component: {fileID: 5048309219562176297}
-  - component: {fileID: 3714727318285860328}
+  - component: {fileID: 7373125742653570991}
   m_Layer: 0
   m_Name: CinemachineCamera
   m_TagString: Untagged
@@ -102,13 +102,13 @@ MonoBehaviour:
       Offset: {x: 0, y: 0}
   CenterOnActivate: 1
   TargetOffset: {x: 0, y: 0, z: 0}
-  Damping: {x: 0, y: 0, z: 0}
+  Damping: {x: 0, y: 0, z: 1}
   Lookahead:
-    Enabled: 1
+    Enabled: 0
     Time: 0.2
     Smoothing: 7
     IgnoreY: 0
---- !u!114 &3714727318285860328
+--- !u!114 &7373125742653570991
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,14 +117,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 4392677962010113065}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f453f694addf4275988fac205bc91968, type: 3}
+  m_Script: {fileID: 11500000, guid: 1a8a05de0ac134f4f9d01bef6b9da077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BoundingShape2D: {fileID: 0}
-  Damping: 0.5
-  SlowingDistance: 5
-  OversizeWindow:
-    Enabled: 0
-    MaxWindowSize: 0
-    Padding: 0
-  m_LegacyMaxWindowSize: -2

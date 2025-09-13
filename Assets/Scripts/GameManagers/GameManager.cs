@@ -25,6 +25,7 @@ namespace Tanchiki.GameManagers
         #endregion
         #region Realization
         private Health playerHealth;
+        [SerializeField] private AudioSource backgroundMusic;
         [SerializeField] private EndScreenShower endScreen;
         private void Initialize()
         {
@@ -87,6 +88,7 @@ namespace Tanchiki.GameManagers
         {
             public override void Enter() 
             {
+                Instance.backgroundMusic.Stop();
                 Instance.endScreen.ShowEndScreen(false);
                 Debug.Log("GameOver State Entered");
             }
