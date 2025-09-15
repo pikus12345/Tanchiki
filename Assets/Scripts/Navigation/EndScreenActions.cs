@@ -1,3 +1,4 @@
+using Tanchiki.GameManagers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,11 +14,12 @@ namespace Tanchiki.Navigation
         }
         public void RestartLevel()
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            LevelManager.RestartLevel();
         }
         public void LoadNextLevel()
         {
-
+            LevelManager.LoadNextLevel();
         }
     }
 }

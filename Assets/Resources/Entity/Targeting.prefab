@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5eb80d8e62d9d145bb50fb783c0f731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PositionMode: 0
+  PositionMode: 1
   RotationMode: 1
   UpdateMethod: 2
   Targets:
@@ -83,8 +83,8 @@ MonoBehaviour:
     Weight: 1
     Radius: 1
   - Object: {fileID: 4388841432997404825}
-    Weight: 0.5
-    Radius: 1
+    Weight: 0.2
+    Radius: 10
   m_LegacyTargets: []
 --- !u!1 &7735708103449422301
 GameObject:

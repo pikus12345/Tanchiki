@@ -25,7 +25,7 @@ namespace Tanchiki.Entity
         public GameObject damageIndicator;
 
         [Header("DeathSettings")]
-        private Color deathColor = new Color(0.4f, 0.4f, 0.4f);
+        [SerializeField] private Color deathColor = new Color(0.4f, 0.4f, 0.4f);
         [SerializeField] GameObject liveObjects;
         [SerializeField] GameObject deathObjects;
 

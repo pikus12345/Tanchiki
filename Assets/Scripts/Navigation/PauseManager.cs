@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using Tanchiki.GameManagers;
 using System.Linq.Expressions;
+using Tanchiki.Entity;
 
 namespace Tanchiki.Navigation
 {
@@ -61,6 +62,10 @@ namespace Tanchiki.Navigation
             {
                 AudioListener.pause = true;
             }
+            TankControl[] controls = FindObjectsByType<TankControl>(FindObjectsSortMode.None);
+            foreach (TankControl control in controls) {
+                control.Freeze();
+            }
         }
         public void DoPlaying()
         {
@@ -68,6 +73,11 @@ namespace Tanchiki.Navigation
             if (pauseAudio)
             {
                 AudioListener.pause = false;
+            }
+            TankControl[] controls = FindObjectsByType<TankControl>(FindObjectsSortMode.None);
+            foreach (TankControl control in controls)
+            {
+                control.Unfreeze();
             }
         }
 

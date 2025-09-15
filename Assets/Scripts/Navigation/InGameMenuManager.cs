@@ -1,3 +1,4 @@
+using Tanchiki.GameManagers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using YG;
@@ -13,6 +14,10 @@ namespace Tanchiki.Navigation
             //LoadingScreen.Instance.Loading(MAINMENU_BUILD_INDEX);
             SceneManager.LoadScene(MAINMENU_BUILD_INDEX);
         }
+        public void RestartLevel()
+        {
+            LevelManager.RestartLevel();
+        }
         private void Start()
         {
             Initialize();
@@ -24,5 +29,6 @@ namespace Tanchiki.Navigation
                 mobileControlsObject.SetActive(true);
             }
         }
+
     }
 }

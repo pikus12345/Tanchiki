@@ -6,16 +6,18 @@ namespace Tanchiki.GameManagers
 {
     public static class LevelManager
     {
-        private static int currentLevel; //displayLevelIndex is saving here
-        internal static void SetCurrentLevel(int level)
+        private static int currentDisplayIndex; //displayLevelIndex is saving here
+        private static int currentSceneIndex;
+        internal static void SetCurrentLevel(int sceneIndex, int displayIndex)
         {
-            currentLevel = level;
+            currentSceneIndex = sceneIndex;
+            currentDisplayIndex = displayIndex;
         }
         internal static void CompleteLevel()
         {
-            if (YG2.saves.completedLevels < currentLevel)
+            if (YG2.saves.completedLevels < currentDisplayIndex)
             {
-                YG2.saves.completedLevels = currentLevel;
+                YG2.saves.completedLevels = currentDisplayIndex;
                 YG2.SaveProgress();
             }
         }
@@ -24,10 +26,18 @@ namespace Tanchiki.GameManagers
             YG2.saves.completedLevels = 0;
             YG2.SaveProgress();
         }
-        internal static void StartLevel(int sceneBuildIndex, int displayLevelIndex)
+        internal static void StartLevel(int sceneIndex, int displayIndex)
         {
-            SetCurrentLevel(displayLevelIndex);
-            LoadingScreen.Instance.Loading(sceneBuildIndex);
+            SetCurrentLevel(sceneIndex, displayIndex);
+            LoadingScreen.Instance.Loading(sceneIndex);
+        }
+        internal static void RestartLevel()
+        {
+            StartLevel(currentSceneIndex, currentDisplayIndex);
+        }
+        internal static void LoadNextLevel() 
+        {
+            StartLevel(currentSceneIndex+1, currentDisplayIndex+1);
         }
     }
 }

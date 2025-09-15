@@ -10374,6 +10374,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   damageIndicator: {fileID: 5475510310828857426, guid: 5a7f56fa103622a4eb13d27ef24c239c, type: 3}
+  deathColor: {r: 0.261, g: 0.261, b: 0.261, a: 1}
   liveObjects: {fileID: 2491435038967287269}
   deathObjects: {fileID: 6018679493900784516}
 --- !u!82 &235505186550909814

@@ -9,6 +9,8 @@ namespace Tanchiki.Entity
         [SerializeField] protected float m_maxSpeed;
         [SerializeField] protected float m_speedDrag;
 
+        protected bool isFreezed;
+
         internal Rigidbody2D m_Rigidbody;
 
         protected float m_currentSpeed;
@@ -18,6 +20,7 @@ namespace Tanchiki.Entity
         }
         internal void Moving(float moveVectorY)
         {
+            if (isFreezed) return;
             Vector2 movement = transform.right * Time.fixedDeltaTime * m_moveSpeed;
             m_currentSpeed += moveVectorY;
             m_currentSpeed = Mathf.MoveTowards(m_currentSpeed, 0, Time.fixedDeltaTime * m_speedDrag);
@@ -27,6 +30,7 @@ namespace Tanchiki.Entity
         }
         internal void Rotating(float moveVectorX)
         {
+            if (isFreezed) return;
             // Âû÷èñëÿåì óãîë ïîâîðîòà
             float rotation = -moveVectorX * m_rotationSpeed * Time.fixedDeltaTime;
 
@@ -71,6 +75,26 @@ namespace Tanchiki.Entity
 
             // Или одной строкой:
             // return toMin + (value - fromMin) * (toMax - toMin) / (fromMax - fromMin);
+        }
+        internal void Freeze()
+        {
+            isFreezed = true;
+            transform.GetComponentInChildren<TurretRotation>().enabled = false;
+            Shooting shooting = transform.GetComponentInChildren<Shooting>();
+            if (shooting != null)
+            {
+                shooting.enabled = false;
+            }
+        }
+        internal void Unfreeze()
+        {
+            isFreezed = false;
+            transform.GetComponentInChildren<TurretRotation>().enabled = true;
+            Shooting shooting = transform.GetComponentInChildren<Shooting>();
+            if (shooting != null)
+            {
+                shooting.enabled = true;
+            }
         }
     }
 }

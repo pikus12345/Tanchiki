@@ -80,7 +80,6 @@ namespace Tanchiki.GameManagers
                 PauseManager.Instance.DoPaused();
                 Debug.Log("Paused State Entered"); 
             }
-
             public override void Update() => Debug.Log("Paused State Update");
             public override void Exit() => Debug.Log("Paused State Exited");
         }
@@ -100,6 +99,7 @@ namespace Tanchiki.GameManagers
             public override void Enter() 
             {
                 Instance.endScreen.ShowEndScreen(true);
+                Instance.backgroundMusic.Stop();
                 Instance.playerHealth.GetComponent<PlayerMovement>().enabled = false;
                 LevelManager.CompleteLevel();
                 Debug.Log("Victory State Entered"); 
