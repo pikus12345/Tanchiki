@@ -21,6 +21,8 @@ namespace Tanchiki.Entity
         public UnityEvent onHeal;       // Событие при лечении
         public UnityEvent onDeath;      // Событие при смерти
 
+        public static UnityEvent onAnyDeath;
+
         [Header("Prefabs")]
         public GameObject damageIndicator;
 
@@ -61,6 +63,7 @@ namespace Tanchiki.Entity
         public void Die()
         {
             onDeath?.Invoke();
+            onAnyDeath?.Invoke();
 
             liveObjects.SetActive(false);
             deathObjects.SetActive(true);
