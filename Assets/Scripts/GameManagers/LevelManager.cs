@@ -1,5 +1,6 @@
 using Tanchiki.Navigation;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using YG;
 
 namespace Tanchiki.GameManagers
@@ -34,7 +35,7 @@ namespace Tanchiki.GameManagers
         internal static void RestartLevel()
         {
             //StartLevel(currentSceneIndex, currentDisplayIndex);
-            RestartLevel();
+            LoadingScreen.Instance.Loading(SceneManager.GetActiveScene().buildIndex);
         }
         internal static void LoadNextLevel() 
         {

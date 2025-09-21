@@ -7,14 +7,17 @@ namespace Tanchiki.GameManagers.Objectives
     public class ReachFinishObjective : Objective
     {
         [SerializeField] private string playerTag = "Player";
-        [SerializeField] private Collider2D finishCollider;
+        [SerializeField] private string finishTag = "Finish";
+        private Collider2D finishCollider;
 
         protected override void Initialize()
         {
+            
+            //найти коллайдер финиша
+            finishCollider = GameObject.FindGameObjectWithTag(finishTag).GetComponent<Collider2D>();
             if (finishCollider == null)
             {
                 Debug.LogError("Finish collider not assigned!");
-                CompleteTask();
                 return;
             }
             //создать компонент на финише и подписаться на событие

@@ -461,6 +461,84 @@ MonoBehaviour:
   title: {fileID: 3573749063910094945}
   nextLevelButton: {fileID: 9057703683350616277}
   screen: {fileID: 7153254871234929482}
+--- !u!1 &2651244317984582050
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8889961254247108180}
+  - component: {fileID: 2211523491163464168}
+  - component: {fileID: 7422068094004513025}
+  - component: {fileID: 614860200419916096}
+  m_Layer: 5
+  m_Name: ObjectiveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8889961254247108180
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2651244317984582050}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1980783724094505854}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2211523491163464168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2651244317984582050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6714ddf79e48684b91ae11595a108e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7422068094004513025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2651244317984582050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54b780efd6c438f438e8dbdf98a55a9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectiveDescription: Kill 4 enemies
+  IsCompleted: 0
+  requiredKills: 4
+  enemyTag: Enemy
+--- !u!114 &614860200419916096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2651244317984582050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bc0c41cecf128e4b8c4bbb044df6f50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectiveDescription: Reach finish
+  IsCompleted: 0
+  playerTag: Player
+  finishCollider: {fileID: 0}
 --- !u!1 &2768362536379432702
 GameObject:
   m_ObjectHideFlags: 0
@@ -1012,6 +1090,7 @@ RectTransform:
   - {fileID: 1562514344032725557}
   - {fileID: 7282466870380939436}
   - {fileID: 7441975384875849971}
+  - {fileID: 8889961254247108180}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
