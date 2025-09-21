@@ -1,4 +1,5 @@
 using Tanchiki.Entity;
+using Tanchiki.GameManagers.Objectives;
 using Tanchiki.Navigation;
 using Tanchiki.PlayerControl;
 using UnityEngine;
@@ -25,6 +26,7 @@ namespace Tanchiki.GameManagers
         #endregion
         #region Realization
         private Health playerHealth;
+        private ObjectivesManager objManager;
         [SerializeField] private AudioSource backgroundMusic;
         [SerializeField] private EndScreenShower endScreen;
         private void Initialize()
@@ -34,11 +36,14 @@ namespace Tanchiki.GameManagers
         private void OnEnable()
         {
             playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
+            objManager = FindAnyObjectByType<ObjectivesManager>();
             playerHealth.onDeath?.AddListener(SetGameOver);
+            objManager.OnObjectivesCompleted += SetVictory;
         }
         private void OnDisable()
         {
             playerHealth.onDeath?.RemoveListener(SetGameOver);
+            objManager.OnObjectivesCompleted -= SetVictory;
         }
         #endregion
         #region FSM

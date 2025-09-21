@@ -51,13 +51,13 @@ namespace Tanchiki.PlayerControl
         {
             inputActions.FindActionMap("Player").Disable();
         }
-        private void OnTriggerEnter2D(Collider2D collision)
-        {
-            if (collision.gameObject.CompareTag("Finish")) 
-            {
-                GameManager.Instance.SetVictory();
-            }
-        }
+        //private void OnTriggerEnter2D(Collider2D collision)
+        //{
+        //    if (collision.gameObject.CompareTag("Finish")) 
+        //    {
+        //        GameManager.Instance.SetVictory();
+        //    }
+        //}
         private void MovingUntilRotate(Vector2 moveVector)
         {
             if (moveVector.magnitude == 0) return;

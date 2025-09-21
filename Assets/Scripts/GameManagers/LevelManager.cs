@@ -33,7 +33,8 @@ namespace Tanchiki.GameManagers
         }
         internal static void RestartLevel()
         {
-            StartLevel(currentSceneIndex, currentDisplayIndex);
+            //StartLevel(currentSceneIndex, currentDisplayIndex);
+            RestartLevel();
         }
         internal static void LoadNextLevel() 
         {
