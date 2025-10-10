@@ -6,13 +6,14 @@ namespace Tanchiki.GameManagers.Objectives
 {
     public class ObjectivesManager : MonoBehaviour
     {
-        private List<Objective> objectives = new List<Objective>();
+        public List<Objective> objectives = new List<Objective>();
         private int requiredObjectives;
         private int completedObjectives;
 
         public event Action OnObjectivesCompleted;
+        public event Action OnAnyObjectiveCompleted;
 
-        private void Start()
+        private void Awake()
         {
             InitializeObjectives();
         }
@@ -33,13 +34,14 @@ namespace Tanchiki.GameManagers.Objectives
         private void HandleObjectiveCompleted(Objective objective)
         {
             completedObjectives++;
+            OnAnyObjectiveCompleted.Invoke();
             Debug.Log($"Objective {objective.objectiveDescription} is completed");
             if (completedObjectives >= requiredObjectives)
             {
-                CompleteObjective();
+                CompleteObjectives();
             }
         }
-        private void CompleteObjective() 
+        private void CompleteObjectives() 
         {
             OnObjectivesCompleted?.Invoke();
             foreach (Objective objective in objectives)

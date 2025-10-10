@@ -121,15 +121,15 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 2, y: 2, z: 2, w: 2}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7ba780038009f61f0800000000000000
-      internalID: -1049461823314036041
+      spriteID: c58c8bdf7cc9dd144adc8d467f4baeae
+      internalID: -109153858
       vertices: []
       indices: 
       edges: []
@@ -143,15 +143,59 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 2, y: 2, z: 2, w: 2}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65306758bc55864408aa22ade4637387
-      internalID: -460851053
+      spriteID: 3c46b657c12e4df4686a035886bb47a7
+      internalID: -2112859153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heal_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50cc6f32ceb952e4e869c165b9c2740d
+      internalID: -453996160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heal_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6110159d060ca394580a55d4fbada443
+      internalID: 527709368
       vertices: []
       indices: 
       edges: []
@@ -176,6 +220,8 @@ TextureImporter:
     nameFileIdTable:
       heal_0: -109153858
       heal_1: -2112859153
+      heal_2: -453996160
+      heal_3: 527709368
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -25,7 +25,7 @@ namespace Tanchiki.GameManagers.Objectives
             OnObjectiveCompleted?.Invoke(this);
             Cleanup();
         }
-        protected virtual void OnDestroy()
+        protected virtual void OnDisable()
         {
             Cleanup();
         }

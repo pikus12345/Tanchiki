@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6193ec0e149f224b96bcc0f19a0d4ce, type: 3}
+  m_Name: Level1
+  m_EditorClassIdentifier: 
+  LevelBuildIndex: 2
+  DisplayLevelIndex: 1
+  LevelName: Training
+  LevelIcon: {fileID: 21300000, guid: d5f2de8f088a8274792fe97e5ee4b954, type: 3}

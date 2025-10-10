@@ -7,5 +7,6 @@ namespace Tanchiki.GameManagers
         public int LevelBuildIndex;
         public int DisplayLevelIndex;
         public string LevelName;
+        public Sprite LevelIcon;
     }
 }

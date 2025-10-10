@@ -507,6 +507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6714ddf79e48684b91ae11595a108e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectives: []
 --- !u!114 &7422068094004513025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -538,7 +539,7 @@ MonoBehaviour:
   objectiveDescription: Reach finish
   IsCompleted: 0
   playerTag: Player
-  finishCollider: {fileID: 0}
+  finishTag: Finish
 --- !u!1 &2768362536379432702
 GameObject:
   m_ObjectHideFlags: 0
@@ -738,6 +739,7 @@ GameObject:
   - component: {fileID: 2542490535525827225}
   - component: {fileID: 2331784452169504852}
   - component: {fileID: 4221213774514456017}
+  - component: {fileID: 1732323488658026425}
   m_Layer: 5
   m_Name: ObjectivesList
   m_TagString: Untagged
@@ -805,6 +807,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1732323488658026425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4884054046461618711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc5380f2222c7254ab48df20a417af02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5198547555432277037
 GameObject:
   m_ObjectHideFlags: 0
@@ -862,6 +876,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4741278788425130665}
   - component: {fileID: 443372016662778065}
+  - component: {fileID: 7717628628576781442}
   m_Layer: 5
   m_Name: List
   m_TagString: Untagged
@@ -915,6 +930,22 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &7717628628576781442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5744507364038488452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad620e3c7b392554a968312dd6aef6e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectivesList: {fileID: 4741278788425130665}
+  objectivePrefab: {fileID: 8816369224035089231, guid: f5b323247bc17974b8f70e11a9c2ea48, type: 3}
+  completedSprite: {fileID: -4983229234859556071, guid: 44468ccefed3c2d4fb8b1193e46f1f61, type: 3}
+  notCompletedSprite: {fileID: 6490989592239393491, guid: 44468ccefed3c2d4fb8b1193e46f1f61, type: 3}
 --- !u!1 &6897948302865582580
 GameObject:
   m_ObjectHideFlags: 0
@@ -1085,12 +1116,12 @@ RectTransform:
   - {fileID: 3402051941930260542}
   - {fileID: 6190892614146931615}
   - {fileID: 3981403977563888486}
+  - {fileID: 8889961254247108180}
   - {fileID: 2542490535525827225}
   - {fileID: 8765876455917284640}
   - {fileID: 1562514344032725557}
   - {fileID: 7282466870380939436}
   - {fileID: 7441975384875849971}
-  - {fileID: 8889961254247108180}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2749,6 +2780,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1562514344032725557}
     m_Modifications:
+    - target: {fileID: 1079392544363237218, guid: 4cba6e3964153d94ab7b24e46cb8b1f9, type: 3}
+      propertyPath: m_Spacing
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 2370440039038172588, guid: 4cba6e3964153d94ab7b24e46cb8b1f9, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -2891,7 +2926,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8665127269588663286, guid: 4cba6e3964153d94ab7b24e46cb8b1f9, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -95.999985
+      value: -64
       objectReference: {fileID: 0}
     - target: {fileID: 8665127269588663286, guid: 4cba6e3964153d94ab7b24e46cb8b1f9, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -2899,7 +2934,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8665127269588663286, guid: 4cba6e3964153d94ab7b24e46cb8b1f9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -15.999992
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5514851543201226071, guid: 4cba6e3964153d94ab7b24e46cb8b1f9, type: 3}

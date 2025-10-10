@@ -25,7 +25,14 @@ namespace Tanchiki.GameManagers.Objectives
         }
         protected override void Cleanup()
         {
-            var trigger = finishCollider.GetComponent<FinishTrigger>();
+            FinishTrigger trigger = null;
+            try
+            {
+                finishCollider.TryGetComponent<FinishTrigger>(out trigger);
+            }
+            catch { }
+            
+
             if (trigger != null)
             {
                 trigger.OnPlayerEnter -= HandlePlayerReachFinish;

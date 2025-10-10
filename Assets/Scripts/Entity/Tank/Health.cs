@@ -16,13 +16,19 @@ namespace Tanchiki.Entity
         [Header("Health Settings")]
         [SerializeField] internal float maxHealth;
         [SerializeField] internal float currentHealth;
+        [SerializeField] internal int maxShield;
+        [SerializeField] internal int currentShield;
+        [SerializeField] private bool isBoss;
+        
 
         [Header("Events")]
         public UnityEvent onTakeDamage; // Событие при получении урона
         public UnityEvent onHeal;       // Событие при лечении
         public UnityEvent onDeath;      // Событие при смерти
+        public UnityEvent onTakeShield;
 
         public static event Action<GameObject, Health> OnAnyDeath;
+        public static event Action<GameObject, Health> OnBossDeath;
 
         [Header("Prefabs")]
         public GameObject damageIndicator;
@@ -40,10 +46,20 @@ namespace Tanchiki.Entity
         // Нанесение урона
         public void TakeDamage(float damage)
         {
-            currentHealth -= damage;
-            currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+            
+            
+            if (currentShield > 0)
+            {
+                currentShield -= 1;
+                currentShield = Mathf.Clamp(currentShield, 0, maxShield);
+            }
+            else
+            {
+                currentHealth -= damage;
+                currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+            }
+            onTakeDamage?.Invoke();
             ShowDamageIndicator(damage, false);
-            onTakeDamage?.Invoke(); // Запуск события
 
             if (currentHealth <= 0)
             {
@@ -59,12 +75,20 @@ namespace Tanchiki.Entity
             ShowDamageIndicator(amount, true);
             onHeal?.Invoke();
         }
+        public void TakeShield(int amount)
+        {
+            currentShield += amount;
+            currentShield = Mathf.Clamp(currentShield, 0, maxShield);
+            ShowDamageIndicator(amount, true);
+            onTakeShield?.Invoke();
+        }
 
         // Смерть объекта
         public void Die()
         {
             onDeath?.Invoke();
             OnAnyDeath?.Invoke(gameObject, this);
+            if (isBoss) OnBossDeath?.Invoke(gameObject, this);
 
             liveObjects.SetActive(false);
             deathObjects.SetActive(true);
@@ -106,6 +130,10 @@ namespace Tanchiki.Entity
         {
             return currentHealth >= maxHealth;
         }
+        public bool IsFullShield()
+        {
+            return currentShield >= maxShield;
+        }
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.collider.CompareTag("Healthbox"))
@@ -113,6 +141,11 @@ namespace Tanchiki.Entity
                 Healthbox box = collision.collider.GetComponent<Healthbox>();
                 if (box.health > 0)
                 {
+                    if (box.isShield & !IsFullShield())
+                    {
+                        TakeShield(Mathf.FloorToInt(box.health));
+                        return;
+                    }
                     if (!IsFullHealth())
                     {
                         Heal(box.health);

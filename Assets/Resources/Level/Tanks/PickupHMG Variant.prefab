@@ -121,6 +121,14 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8402561928153990468, guid: 8ef77f07156133f43bee97b82c4a7b79, type: 3}
+      propertyPath: viewDistance
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8402561928153990468, guid: 8ef77f07156133f43bee97b82c4a7b79, type: 3}
+      propertyPath: shootDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8402561928153990468, guid: 8ef77f07156133f43bee97b82c4a7b79, type: 3}
       propertyPath: m_rotationSpeed
       value: 90
       objectReference: {fileID: 0}

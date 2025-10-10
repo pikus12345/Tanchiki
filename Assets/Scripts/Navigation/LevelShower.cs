@@ -25,12 +25,13 @@ namespace Tanchiki.Navigation
             foreach (var level in Levels)
             {
                 Transform button = Instantiate(ButtonPrefab, SpawnTransform).transform;
-                button.GetComponentInChildren<TMP_Text>()?.SetText($"{level.LevelName} : {level.DisplayLevelIndex}");
+                button.GetComponentInChildren<TMP_Text>()?.SetText($"{level.LevelName}\n{level.DisplayLevelIndex}");
                 button.GetComponent<Button>().onClick.AddListener(
                     () => LevelManager.StartLevel(
                         level.LevelBuildIndex, 
                         level.DisplayLevelIndex)
                     );
+                button.Find("Icon").GetComponent<Image>().sprite = level.LevelIcon;
                 if (level.DisplayLevelIndex > completedLevels+1)
                 {
                     button.GetComponent<Button>().interactable = false;
