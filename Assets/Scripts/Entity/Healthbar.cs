@@ -39,7 +39,7 @@ namespace Tanchiki.Entity {
             float mh = health.maxHealth; // max health
             float s = health.currentShield; // current shield
             float ms = health.maxShield; // max shield
-            if (h >= mh & hideWhenFull & s >= ms)
+            if (h >= mh & hideWhenFull | s >= ms)
             {
                 healthBar.gameObject.SetActive(false);
             }

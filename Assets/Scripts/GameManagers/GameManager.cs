@@ -10,7 +10,7 @@ namespace Tanchiki.GameManagers
     {
         #region Singleton
         public static GameManager Instance { get; private set; }
-        private void Start()
+        private void Awake()
         {
             if (Instance == null)
             {
@@ -29,6 +29,7 @@ namespace Tanchiki.GameManagers
         private ObjectivesManager objManager;
         [SerializeField] private AudioSource backgroundMusic;
         [SerializeField] private EndScreenShower endScreen;
+        [SerializeField] public MessageManager messageManager;
         private void Initialize()
         {
             InitializeGameStateMachine();

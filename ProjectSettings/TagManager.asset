@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Healthbox
   - Enemy
+  - MessageMark
   layers:
   - Default
   - TransparentFX

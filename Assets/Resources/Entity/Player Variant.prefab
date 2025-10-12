@@ -84,6 +84,22 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: -1221306533252362314, guid: d6ff99994a1f9954e8249c96a873ce3c, type: 2}
+    - target: {fileID: 3818813669794095324, guid: 9b224e48f5ba7e04aa1840018c91d1e0, type: 3}
+      propertyPath: m_Size.x
+      value: 1.11304
+      objectReference: {fileID: 0}
+    - target: {fileID: 3818813669794095324, guid: 9b224e48f5ba7e04aa1840018c91d1e0, type: 3}
+      propertyPath: m_Size.y
+      value: 0.8299732
+      objectReference: {fileID: 0}
+    - target: {fileID: 3818813669794095324, guid: 9b224e48f5ba7e04aa1840018c91d1e0, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3818813669794095324, guid: 9b224e48f5ba7e04aa1840018c91d1e0, type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3867803502645403638, guid: 9b224e48f5ba7e04aa1840018c91d1e0, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -194,6 +210,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3251257463439394087, guid: 9b224e48f5ba7e04aa1840018c91d1e0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1101509438921446786}
+    - targetCorrespondingSourceObject: {fileID: 3251257463439394087, guid: 9b224e48f5ba7e04aa1840018c91d1e0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1037008759987452501}
     - targetCorrespondingSourceObject: {fileID: 7924566700461299534, guid: 9b224e48f5ba7e04aa1840018c91d1e0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1052228977490487536}
@@ -273,3 +292,15 @@ MonoBehaviour:
   m_speedDrag: 15
   inputActions: {fileID: -944628639613478452, guid: 6e4626f1fcd23b54b9861dce0b67214b, type: 3}
   rotateCorrection: 45
+--- !u!114 &1037008759987452501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6563508518390664300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39ef336055b4fc04794918a2c5400fae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
