@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelBuildIndex: 5
   DisplayLevelIndex: 4
-  LevelName: Sheikh's dream
-  LevelIcon: {fileID: 412364918, guid: 15baeb917af66ae4c8e124a340d3e63d, type: 3}
+  LevelName: Desert
+  LevelIcon: {fileID: 485522573, guid: 15baeb917af66ae4c8e124a340d3e63d, type: 3}

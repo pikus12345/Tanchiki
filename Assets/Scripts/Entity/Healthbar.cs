@@ -1,4 +1,4 @@
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +16,10 @@ namespace Tanchiki.Entity {
             transform.rotation = Quaternion.identity;
         }
         private void Start()
+        {
+            Initialize();
+        }
+        private void Initialize()
         {
             HealthUpdate();
         }
@@ -39,15 +43,17 @@ namespace Tanchiki.Entity {
             float mh = health.maxHealth; // max health
             float s = health.currentShield; // current shield
             float ms = health.maxShield; // max shield
-            if (h >= mh & hideWhenFull | s >= ms)
+
+            if(h == mh & s == ms & hideWhenFull)
             {
                 healthBar.gameObject.SetActive(false);
             }
-            else 
+            else
             {
                 healthBar.gameObject.SetActive(true);
             }
-            shieldBar.value = s / ms;
+
+                shieldBar.value = s / ms;
             healthBar.value = h / mh;
             text.text = $"{h}/{mh}";
         }

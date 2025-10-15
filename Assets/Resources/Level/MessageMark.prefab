@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5214866090455645371}
   - component: {fileID: 8161551538839604613}
   - component: {fileID: 4547147771323676402}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: MessageMark
   m_TagString: MessageMark
   m_Icon: {fileID: 0}

@@ -13,6 +13,10 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5441760616328424, guid: 9b224e48f5ba7e04aa1840018c91d1e0, type: 3}
+      propertyPath: maxShield
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5441760616328424, guid: 9b224e48f5ba7e04aa1840018c91d1e0, type: 3}
       propertyPath: currentHealth
       value: 100
       objectReference: {fileID: 0}

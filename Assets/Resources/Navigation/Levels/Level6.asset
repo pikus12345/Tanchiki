@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6193ec0e149f224b96bcc0f19a0d4ce, type: 3}
-  m_Name: Level5
+  m_Name: Level6
   m_EditorClassIdentifier: 
-  LevelBuildIndex: 6
-  DisplayLevelIndex: 5
-  LevelName: Sheikh's dream
-  LevelIcon: {fileID: 412364918, guid: 15baeb917af66ae4c8e124a340d3e63d, type: 3}
+  LevelBuildIndex: 7
+  DisplayLevelIndex: 6
+  LevelName: Snow Town
+  LevelIcon: {fileID: 1891995552, guid: 15baeb917af66ae4c8e124a340d3e63d, type: 3}

@@ -10488,7 +10488,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 50
   currentHealth: 50
-  maxShield: 3
+  maxShield: 0
   currentShield: 0
   isBoss: 0
   onTakeDamage:
