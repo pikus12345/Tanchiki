@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 6f8d4faee6299a943a8c8f2940828eec
+guid: d33a83ca41049884fa5f17be12a8596a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6861455820041520386
-    second: yeti_turret_0
-  - first:
-      213: 26262068748863580
-    second: yeti_turret_1
+      213: 3182178756713725467
+    second: yeti_body_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -116,45 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: yeti_turret_0
+      name: yeti_body_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 51
+        width: 50
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: efa7364094637c0a0800000000000000
-      internalID: -6861455820041520386
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: yeti_turret_1
-      rect:
-        serializedVersion: 2
-        x: 51
-        y: 0
-        width: 51
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c58c7de563d4d5000800000000000000
-      internalID: 26262068748863580
+      spriteID: b1e37b528be592c20800000000000000
+      internalID: 3182178756713725467
       vertices: []
       indices: 
       edges: []
@@ -163,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5de00a405fcc5f74eb2f2f56a3deb4ea
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -171,12 +146,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":51.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      yeti_turret_0: -6861455820041520386
-      yeti_turret_1: 26262068748863580
+      yeti_body_0: 3182178756713725467
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
