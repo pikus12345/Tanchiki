@@ -1,4 +1,4 @@
-using Tanchiki.Navigation;
+﻿using Tanchiki.Navigation;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using YG;
@@ -39,7 +39,20 @@ namespace Tanchiki.GameManagers
         }
         internal static void LoadNextLevel() 
         {
-            StartLevel(currentSceneIndex+1, currentDisplayIndex+1);
+            if (IsNextLevelExist())
+            {
+                StartLevel(currentSceneIndex + 1, currentDisplayIndex + 1);
+            }
+            
+        }
+        internal static bool IsNextLevelExist()
+        {
+            Debug.Log($"{SceneManager.sceneCountInBuildSettings} {currentSceneIndex+1}");
+            if (SceneManager.sceneCountInBuildSettings > currentSceneIndex+1)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

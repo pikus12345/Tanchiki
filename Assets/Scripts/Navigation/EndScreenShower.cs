@@ -1,4 +1,4 @@
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Tanchiki.GameManagers;
@@ -17,7 +17,10 @@ namespace Tanchiki.Navigation {
             if (isVictory) 
             {
                 title.text = "Victory!";
-                nextLevelButton.gameObject.SetActive(true);
+                if (LevelManager.IsNextLevelExist())
+                {
+                    nextLevelButton.gameObject.SetActive(true);
+                }
             }
         }
     }

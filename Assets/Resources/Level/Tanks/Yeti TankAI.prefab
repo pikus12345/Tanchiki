@@ -86,7 +86,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: d33a83ca41049884fa5f17be12a8596a, type: 3}
     - target: {fileID: 5210417939476823890, guid: 8ef77f07156133f43bee97b82c4a7b79, type: 3}
       propertyPath: maxHealth
-      value: 250
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 5210417939476823890, guid: 8ef77f07156133f43bee97b82c4a7b79, type: 3}
       propertyPath: maxShield
@@ -94,7 +94,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5210417939476823890, guid: 8ef77f07156133f43bee97b82c4a7b79, type: 3}
       propertyPath: currentHealth
-      value: 250
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 5210417939476823890, guid: 8ef77f07156133f43bee97b82c4a7b79, type: 3}
       propertyPath: currentShield
@@ -102,7 +102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5515723149485283924, guid: 8ef77f07156133f43bee97b82c4a7b79, type: 3}
       propertyPath: damage
-      value: 45
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5515723149485283924, guid: 8ef77f07156133f43bee97b82c4a7b79, type: 3}
       propertyPath: shootingDelay

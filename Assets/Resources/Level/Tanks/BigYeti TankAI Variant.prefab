@@ -1,0 +1,127 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4365062061389723101
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1146000656437409586, guid: 648fac9a6e3f0ed4b945a736253e3305, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1146000656437409586, guid: 648fac9a6e3f0ed4b945a736253e3305, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1146000656437409586, guid: 648fac9a6e3f0ed4b945a736253e3305, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1146000656437409586, guid: 648fac9a6e3f0ed4b945a736253e3305, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 115.77519
+      objectReference: {fileID: 0}
+    - target: {fileID: 1146000656437409586, guid: 648fac9a6e3f0ed4b945a736253e3305, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -34.70274
+      objectReference: {fileID: 0}
+    - target: {fileID: 1146000656437409586, guid: 648fac9a6e3f0ed4b945a736253e3305, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1146000656437409586, guid: 648fac9a6e3f0ed4b945a736253e3305, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1146000656437409586, guid: 648fac9a6e3f0ed4b945a736253e3305, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1146000656437409586, guid: 648fac9a6e3f0ed4b945a736253e3305, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1146000656437409586, guid: 648fac9a6e3f0ed4b945a736253e3305, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1146000656437409586, guid: 648fac9a6e3f0ed4b945a736253e3305, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1146000656437409586, guid: 648fac9a6e3f0ed4b945a736253e3305, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1146000656437409586, guid: 648fac9a6e3f0ed4b945a736253e3305, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1781774540634501236, guid: 648fac9a6e3f0ed4b945a736253e3305, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1781774540634501236, guid: 648fac9a6e3f0ed4b945a736253e3305, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4731913981474509748, guid: 648fac9a6e3f0ed4b945a736253e3305, type: 3}
+      propertyPath: isBoss
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4731913981474509748, guid: 648fac9a6e3f0ed4b945a736253e3305, type: 3}
+      propertyPath: maxHealth
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 4731913981474509748, guid: 648fac9a6e3f0ed4b945a736253e3305, type: 3}
+      propertyPath: maxShield
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4731913981474509748, guid: 648fac9a6e3f0ed4b945a736253e3305, type: 3}
+      propertyPath: currentHealth
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 4731913981474509748, guid: 648fac9a6e3f0ed4b945a736253e3305, type: 3}
+      propertyPath: currentShield
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5003487965755782834, guid: 648fac9a6e3f0ed4b945a736253e3305, type: 3}
+      propertyPath: damage
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 5003487965755782834, guid: 648fac9a6e3f0ed4b945a736253e3305, type: 3}
+      propertyPath: shootingDelay
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7829154584834062971, guid: 648fac9a6e3f0ed4b945a736253e3305, type: 3}
+      propertyPath: m_Name
+      value: BigYeti TankAI Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456174123915429219, guid: 648fac9a6e3f0ed4b945a736253e3305, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043184889930688930, guid: 648fac9a6e3f0ed4b945a736253e3305, type: 3}
+      propertyPath: m_moveSpeed
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043184889930688930, guid: 648fac9a6e3f0ed4b945a736253e3305, type: 3}
+      propertyPath: shootDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043184889930688930, guid: 648fac9a6e3f0ed4b945a736253e3305, type: 3}
+      propertyPath: m_rotationSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043184889930688930, guid: 648fac9a6e3f0ed4b945a736253e3305, type: 3}
+      propertyPath: rotateCorrection
+      value: 15
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 648fac9a6e3f0ed4b945a736253e3305, type: 3}
